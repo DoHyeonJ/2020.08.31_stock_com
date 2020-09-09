@@ -26,5 +26,10 @@ public class D {
 			+"(comment_uid, comment_con_num, comment_name, comment_pw, comment_content, comment_date)"
 			+"VALUES"
 			+"(?, ?, ?, ?, ?, ?)";
-
+	//게시글 선택
+	public static final String SQL_BORAD_SELECT_BY_UID =
+			"SELECT * FROM st_board WHERE board_uid = ?";
+	//게시글 조회수
+	public static final String SQL_BORAD_VIEWCNT =
+			"UPDATE st_board SET board_viewcnt = board_viewcnt + 1 WHERE borad_uid = ?";
 }

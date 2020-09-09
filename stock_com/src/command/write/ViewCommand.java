@@ -1,7 +1,5 @@
 package command.write;
 
-import java.sql.SQLException;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -13,13 +11,18 @@ public class ViewCommand implements Command {
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		St_DAO dao = new St_DAO();
 		St_DTO [] arr = null;
-		int uid = Integer.parseInt(request.getParameter("uid"));  // 매개변수 검증 필요
+		//매개변수 검증필요
+		int uid = Integer.parseInt(request.getParameter("uid")); 
 		
 		try {
-			arr = dao.readByUid(uid);  // 읽기 + 조회수 증가
+			//읽기 + 조회수 증가
+			arr = dao.readByUid(uid); 
 			request.setAttribute("list", arr);
-		} catch (SQLException e) { // 만약 ConnectionPool 을 사용한다면 여기서 NamingException 도 catch 해야 한다  
+			// 만약 ConnectionPool 을 사용한다면 여기서 NamingException 도 catch 해야 한다. 
+		} catch (Exception e) {  
 			e.printStackTrace();
 		}
-	} //end execute()
-} // end Command
+	}
+
+		
+}
