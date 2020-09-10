@@ -37,16 +37,12 @@ public class St_DTO {
 	// 기본생성자
 	public St_DTO() {
 		super();
-		System.out.println("WriteDTO() 객체생성");
+		System.out.println("St_DTO() 객체생성");
 	}
-
-	// 매개변수 받는 생성자
+	
+	// member 생성자 (매개변수 받는 생성자)
 	public St_DTO (int member_uid, String member_name, String member_id, String member_pw, 
-			String member_email, String member_gender, String member_birth, String member_phone, 
-			int borad_uid, String borad_name, String borad_title, String borad_content, 
-			String borad_date, int borad_viewcnt, int comment_uid, int comment_con_num, 
-			String comment_name, String comment_pw, String comment_content, String comment_date) {
-		
+			String member_email, String member_gender, String member_birth, String member_phone){
 		super();
 		this.member_uid = member_uid;
 		this.member_name = member_name;
@@ -56,12 +52,23 @@ public class St_DTO {
 		this.member_gender = member_gender;
 		this.member_birth = member_birth;
 		this.member_phone = member_phone;
+	}
+	// borad 생성자
+	public St_DTO (int borad_uid, String borad_name, String borad_title, String borad_content, 
+			String borad_date, int borad_viewcnt) {
+		super();
 		this.borad_uid = borad_uid;
 		this.borad_name = borad_name;
 		this.borad_title = borad_title;
 		this.borad_content = borad_content;
 		this.borad_date = borad_date;
 		this.borad_viewcnt = borad_viewcnt;
+	}
+	
+	// comment 생성자
+	public St_DTO (int comment_uid, int comment_con_num,String comment_name, String comment_pw, 
+			String comment_content, String comment_date) {
+		super();
 		this.comment_uid = comment_uid;
 		this.comment_con_num = comment_con_num;
 		this.comment_name = comment_name;

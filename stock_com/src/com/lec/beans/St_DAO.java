@@ -42,6 +42,31 @@ public class St_DAO {
 		if(conn != null) conn.close();
 	}
 	
+	// Resultset --> DTO 배열로 변환 리턴
+	public St_DTO [] createArray(ResultSet rs) throws SQLException {
+		ArrayList<St_DTO> list = new ArrayList<St_DTO>();
+		
+		while(rs.next()) {
+			int borad_uid = rs.getInt("board_uid");
+			String borad_name = rs.getString("board_name");
+			String borad_title = rs.getString("board_title");
+			String borad_content = rs.getString("board_content");
+			if(borad_content == null) borad_content = "";
+			Date d = rs.getDate("board_date");
+			Time t = rs.getTime("board_date");
+			int borad_viewCnt = rs.getInt("board_viewcnt");
+			String borad_date = new SimpleDateFormat("yyyy-mm-dd").format(d) + " "
+						+ new SimpleDateFormat("hh:mm:ss").format(t);
+			
+			St_DTO dto = new St_DTO(borad_uid, borad_name, borad_title, borad_content,  borad_date, borad_viewCnt);
+			list.add(dto);
+		}
+		
+		int size = list.size();
+		St_DTO [] arr = new St_DTO[size];
+		list.toArray(arr);
+		return arr;
+	}
 	// 특정 uid 의 글만 읽어오기  + 조회수 증가
 	// SELECT, UPDATE
 	public St_DTO[] readByUid (int uid) throws SQLException{
