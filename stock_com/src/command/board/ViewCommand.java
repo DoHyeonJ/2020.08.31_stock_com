@@ -1,4 +1,4 @@
-package command.write;
+package command.board;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -11,14 +11,14 @@ public class ViewCommand implements Command {
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		St_DAO dao = new St_DAO();
 		St_DTO [] arr = null;
-		//¸Å°³º¯¼ö °ËÁõÇÊ¿ä
+		//ë§¤ê°œë³€ìˆ˜ ê²€ì¦í•„ìš”
 		int uid = Integer.parseInt(request.getParameter("uid")); 
 		
 		try {
-			//ÀĞ±â + Á¶È¸¼ö Áõ°¡
+			//ì½ê¸° + ì¡°íšŒìˆ˜ ì¦ê°€
 			arr = dao.readByUid(uid); 
 			request.setAttribute("list", arr);
-			// ¸¸¾à ConnectionPool À» »ç¿ëÇÑ´Ù¸é ¿©±â¼­ NamingException µµ catch ÇØ¾ß ÇÑ´Ù. 
+			// ë§Œì•½ ConnectionPool ì„ ì‚¬ìš©í•œë‹¤ë©´ ì—¬ê¸°ì„œ NamingException ë„ catch í•´ì•¼ í•œë‹¤. 
 		} catch (Exception e) {  
 			e.printStackTrace();
 		}

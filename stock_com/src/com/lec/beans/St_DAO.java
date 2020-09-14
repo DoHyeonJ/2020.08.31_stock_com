@@ -19,22 +19,22 @@ public class St_DAO {
 	Statement stmt;
 	ResultSet rs;
 	
-	// DAO °´Ã¼°¡ »ý¼ºµÉ¶§ Connection µµ »ý¼ºµÊ.
+	// DAO ê°ì²´ê°€ ìƒì„±ë ë•Œ Connection ë„ ìƒì„±ë¨.
 	public St_DAO() {
 		try {
 			Class.forName(D.DRIVER);
 			conn = DriverManager.getConnection(D.URL, D.USERID, D.USERPW);
-			System.out.println("St_DAO °´Ã¼ »ý¼º, µ¥ÀÌÅÍº£ÀÌ½º ¿¬°á.");
-		//Å¬·¡½º¸¦ Ã£Áö ¸øÇßÀ»¶§ÀÇ ¿¹¿ÜÃ³¸®
+			System.out.println("St_DAO ê°ì²´ ìƒì„±, ë°ì´í„°ë² ì´ìŠ¤ ì—°ê²°.");
+		//í´ëž˜ìŠ¤ë¥¼ ì°¾ì§€ ëª»í–ˆì„ë•Œì˜ ì˜ˆì™¸ì²˜ë¦¬
 		} catch (ClassNotFoundException e) { 
 			e.printStackTrace();
-		//SQL ¿¡·¯½ÃÀÇ ¿¹¿ÜÃ³¸®
+		//SQL ì—ëŸ¬ì‹œì˜ ì˜ˆì™¸ì²˜ë¦¬
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
 	
-	// DB ÀÚ¿ø ¹Ý³³ ¸Þ¼Òµå
+	// DB ìžì› ë°˜ë‚© ë©”ì†Œë“œ
 	public void close() throws SQLException {
 		if(rs != null) rs.close();
 		if(pstmt != null) pstmt.close();
@@ -42,7 +42,33 @@ public class St_DAO {
 		if(conn != null) conn.close();
 	}
 	
-	// Resultset --> DTO ¹è¿­·Î º¯È¯ ¸®ÅÏ
+	
+	//ìƒˆê¸€ ìž‘ì„± <-- ì œëª©,ë‚´ìš©,ìž‘ì„±ìž
+	//INSERT
+	public int insert(St_DTO dto) throws SQLException {
+		String title = dto.getBorad_title();
+		String content = dto.getBorad_content();
+		String name = dto.getBorad_name();
+		
+		return this.insert(title, content, name);
+	}
+	
+	public int insert(String title, String content, String name) throws SQLException {
+		int cnt = 0;
+		try {
+			pstmt = conn.prepareStatement(D.SQL_BORAD_INSERT);
+			pstmt.setString(1, title);
+			pstmt.setString(2, content);
+			pstmt.setString(3, name);
+			cnt = pstmt.executeUpdate();
+		} finally {
+			close();
+		}
+		
+		return cnt;
+	}
+	
+	// Resultset --> DTO ë°°ì—´ë¡œ ë³€í™˜ ë¦¬í„´
 	public St_DTO [] createArray(ResultSet rs) throws SQLException {
 		ArrayList<St_DTO> list = new ArrayList<St_DTO>();
 		
@@ -67,17 +93,48 @@ public class St_DAO {
 		list.toArray(arr);
 		return arr;
 	}
-	// Æ¯Á¤ uid ÀÇ ±Û¸¸ ÀÐ¾î¿À±â  + Á¶È¸¼ö Áõ°¡
+	
+	// ê¸€ ëª©ë¡ ì½ì–´ì˜¤ê¸°
+	// SELECT
+	public St_DTO [] select() throws SQLException {
+		St_DTO [] arr = null;
+		try {
+			pstmt = conn.prepareStatement(D.SQL_BORAD_SELECT);
+			rs = pstmt.executeQuery();
+			arr = createArray(rs);
+		} finally {
+			close();
+		}
+		return arr;
+	}
+	
+	//íŠ¹ì • uid ì˜ ê¸€ë§Œ ì½ì–´ì˜¤ê¸°
+	public St_DTO [] selectByuid(int uid) throws SQLException {
+		St_DTO [] arr = null;
+		
+		try {
+			pstmt = conn.prepareStatement(D.SQL_BORAD_SELECT_BY_UID);
+			pstmt.setInt(1, uid);
+			rs = pstmt.executeQuery();
+			arr = createArray(rs);
+		} finally {
+			close();
+		}
+		
+		return arr;
+	}
+	
+	// íŠ¹ì • uid ì˜ ê¸€ë§Œ ì½ì–´ì˜¤ê¸°  + ì¡°íšŒìˆ˜ ì¦ê°€
 	// SELECT, UPDATE
 	public St_DTO[] readByUid (int uid) throws SQLException{
 		int cnt =0;
 		St_DTO arr[] = null;
 		
 		try {
-			// Æ®·£Àè¼Ç Ã³¸®
+			// íŠ¸ëžœìž­ì…˜ ì²˜ë¦¬
 			conn.setAutoCommit(false);
 			
-			//Äõ¸®¹® ½ÇÇà
+			//ì¿¼ë¦¬ë¬¸ ì‹¤í–‰
 			pstmt = conn.prepareStatement(D.SQL_BORAD_VIEWCNT);
 			pstmt.setInt(1, uid);
 			cnt = pstmt.executeUpdate();
@@ -99,6 +156,38 @@ public class St_DAO {
 		
 		return arr;
 	}
-}
+	// íŠ¹ì • uid ì˜ ê¸€ì„ ì‚­ì œí•˜ê¸°
+	// DELETE
+	public int deleteByUid(int uid) throws SQLException{
+		int cnt = 0;
+		
+		try {
+			pstmt = conn.prepareStatement(D.SQL_BORAD_DELETE_BY_UID);
+			pstmt.setInt(1, uid);
+			cnt = pstmt.executeUpdate();
+		} finally {
+			close();
+		}
+		return cnt;
+	}
+	//íŠ¹ì • uid ì˜ ê¸€ì„ ìˆ˜ì •í•˜ê¸° --> ì œëª©,ë‚´ìš©
+	//UPDATE
+	public int update(int uid, String title, String content) throws SQLException {
+		int cnt = 0;
+		try {
+			pstmt = conn.prepareStatement(D.SQL_BORAD_UPDATE);
+			pstmt.setString(1, title);
+			pstmt.setString(2, content);
+			pstmt.setInt(3, uid);
+			cnt = pstmt.executeUpdate();
+		} finally {
+			close();
+		}
+		
+		return cnt;
+	}
+	
+	
+} //end class
 
 

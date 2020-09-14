@@ -1,9 +1,9 @@
-package command.write;
+package command.board;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-//Command µğÀÚÀÎÆĞÅÏ : °´Ã¼°¡ Æ¯Á¤ ±â´ÉÀ» ¹Ù·Î ¼öÁ¤ÇÏ°Å³ª ³ªÁß¿¡ Æ®¸®°Å ÇÒ¶§, ÇÊ¿äÇÑ ¸ğµç Á¤º¸¸¦ Ä¸½¶È­ÇÏ´Â Çàµ¿ ÆĞÅÏ
+//Command ë””ìì¸íŒ¨í„´ : ê°ì²´ê°€ íŠ¹ì • ê¸°ëŠ¥ì„ ë°”ë¡œ ìˆ˜ì •í•˜ê±°ë‚˜ ë‚˜ì¤‘ì— íŠ¸ë¦¬ê±° í• ë•Œ, í•„ìš”í•œ ëª¨ë“  ì •ë³´ë¥¼ ìº¡ìŠí™”í•˜ëŠ” í–‰ë™ íŒ¨í„´
 public interface Command {
 	void execute(HttpServletRequest request, HttpServletResponse response);
 }

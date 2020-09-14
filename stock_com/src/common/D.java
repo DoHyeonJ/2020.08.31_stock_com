@@ -6,7 +6,7 @@ public class D {
 	public static final String USERID = "myuser";
 	public static final String USERPW = "1234";
 		
-	//È¸¿ø°¡ÀÔ, ·Î±×ÀÎ °ü·Ã Äõ¸®¹®
+	//íšŒì›ê°€ì…, ë¡œê·¸ì¸ ê´€ë ¨ ì¿¼ë¦¬ë¬¸
 	public static final String SQL_MEMBER_INSERT =
 			"INSERT INTO st_member"
 			+"(member_uid, member_name, member_id, member_pw, member_email,"
@@ -14,22 +14,31 @@ public class D {
 			+"VALUES"
 			+"(?, ?, ?, ?, ?, ?, ?, ?)";
 	
-	//°Ô½Ã±Û °ü·Ã Äõ¸®¹®
+	//ê²Œì‹œê¸€ ê´€ë ¨ ì¿¼ë¦¬ë¬¸
 	public static final String SQL_BORAD_INSERT =
 			"INSERT INTO st_board"
 			+"(board_uid, board_name, board_title, board_content, board_date, board_viewcnt)"
 			+"VALUES"
 			+"(?, ?, ?, ?, ?, ?)";
-	//´ñ±Û °ü·Ã Äõ¸®¹®
+	//ëŒ“ê¸€ ê´€ë ¨ ì¿¼ë¦¬ë¬¸
 	public static final String SQL_COMMENT_INSERT =
 			"INSERT INTO st_comment"
 			+"(comment_uid, comment_con_num, comment_name, comment_pw, comment_content, comment_date)"
 			+"VALUES"
 			+"(?, ?, ?, ?, ?, ?)";
-	//°Ô½Ã±Û ¼±ÅÃ
+	//ê²Œì‹œê¸€ ì„ íƒ
 	public static final String SQL_BORAD_SELECT_BY_UID =
 			"SELECT * FROM st_board WHERE board_uid = ?";
-	//°Ô½Ã±Û Á¶È¸¼ö
+	//ê²Œì‹œê¸€ ì¡°íšŒìˆ˜
 	public static final String SQL_BORAD_VIEWCNT =
 			"UPDATE st_board SET board_viewcnt = board_viewcnt + 1 WHERE borad_uid = ?";
+	//ê²Œì‹œë¬¼ êµìœ ë²ˆí˜¸ ë‚´ë¦¼ì°¨ìˆœ. (ì„ íƒ) ASC(ì˜¤ë¦„ì°¨ìˆœ), DESC(ë‚´ë¦¼ì°¨ìˆœ)
+	public static final String SQL_BORAD_SELECT =
+			"SELECT * FROM st_board ORDER BY board_uid DESC"; 
+	//ê²Œì‹œê¸€ ì‚­ì œ
+	public static final String SQL_BORAD_DELETE_BY_UID =
+			"DELETE FROM st_board WHERE board_uid = ?";
+	//ê²Œì‹œê¸€ ìˆ˜ì •
+	public static final String SQL_BORAD_UPDATE =
+			"UPDATE st_borad SET borad_title = ?, borad_content = ? WHERE borad_uid = ?";
 }

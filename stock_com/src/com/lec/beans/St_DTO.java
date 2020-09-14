@@ -2,13 +2,7 @@ package com.lec.beans;
 
 public class St_DTO {
 
-	@Override
-	public String toString() {
-		// TODO Auto-generated method stub
-		return super.toString();
-	}
-
-	// member Å×ÀÌºí
+	// member í…Œì´ë¸”
 	private int member_uid;
 	private String member_name;
 	private String member_id;
@@ -18,7 +12,7 @@ public class St_DTO {
 	private String member_birth;
 	private String member_phone;
 
-	// borad Å×ÀÌºí
+	// borad í…Œì´ë¸”
 	private int borad_uid;
 	private String borad_name;
 	private String borad_title;
@@ -26,7 +20,7 @@ public class St_DTO {
 	private String borad_date;
 	private int borad_viewcnt;
 
-	// comment Å×ÀÌºí
+	// comment í…Œì´ë¸”
 	private int comment_uid;
 	private int comment_con_num;
 	private String comment_name;
@@ -34,13 +28,13 @@ public class St_DTO {
 	private String comment_content;
 	private String comment_date;
 
-	// ±âº»»ı¼ºÀÚ
+	// ê¸°ë³¸ìƒì„±ì
 	public St_DTO() {
 		super();
-		System.out.println("St_DTO() °´Ã¼»ı¼º");
+		System.out.println("St_DTO() ê°ì²´ìƒì„±");
 	}
 	
-	// member »ı¼ºÀÚ (¸Å°³º¯¼ö ¹Ş´Â »ı¼ºÀÚ)
+	// member ìƒì„±ì (ë§¤ê°œë³€ìˆ˜ ë°›ëŠ” ìƒì„±ì)
 	public St_DTO (int member_uid, String member_name, String member_id, String member_pw, 
 			String member_email, String member_gender, String member_birth, String member_phone){
 		super();
@@ -53,7 +47,7 @@ public class St_DTO {
 		this.member_birth = member_birth;
 		this.member_phone = member_phone;
 	}
-	// borad »ı¼ºÀÚ
+	// borad ìƒì„±ì
 	public St_DTO (int borad_uid, String borad_name, String borad_title, String borad_content, 
 			String borad_date, int borad_viewcnt) {
 		super();
@@ -65,7 +59,7 @@ public class St_DTO {
 		this.borad_viewcnt = borad_viewcnt;
 	}
 	
-	// comment »ı¼ºÀÚ
+	// comment ìƒì„±ì
 	public St_DTO (int comment_uid, int comment_con_num,String comment_name, String comment_pw, 
 			String comment_content, String comment_date) {
 		super();
