@@ -26,7 +26,7 @@
 		for(int i=0; i < arr.length; i++){
 			out.println("<tr>");
 			out.println("<td>" + arr[i].getBorad_uid() + "</td>");
-			out.println("<td><a href="board_view.do?uid=" + arr[i].getBorad_uid() + "'>" + arr[i].getBorad_title() + "</a></td>");
+			out.println("<td><a href='board_view.do?uid=" + arr[i].getBorad_uid() + "'>" + arr[i].getBorad_title() + "</a></td>");
 			out.println("<td>" + arr[i].getMember_name() + "</td>");
 			out.println("<td>" + arr[i].getBorad_viewcnt() + "</td>");
 			out.println("<td>" + arr[i].getBorad_date() + "</td>");
