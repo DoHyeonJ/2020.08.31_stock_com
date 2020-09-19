@@ -15,14 +15,13 @@ public class WriteCommand implements Command {
 		St_DAO dao = new St_DAO();
 		
 		//입력한 값 받아오기
-		String name = request.getParameter("name");
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
 		
 		//parameter 유효성 검증
-		if(name != null && title != null && name.trim().length() > 0 && title.trim().length() > 0) {
+		if(title != null && title.trim().length() > 0) {
 			try {
-				cnt = dao.insert(title, content, name);
+				cnt = dao.insert(title, content);
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}

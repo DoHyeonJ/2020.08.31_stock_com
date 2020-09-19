@@ -13,58 +13,56 @@ DROP TABLE IF EXISTS st_member;
 
 CREATE TABLE st_board
 (
-	-- °Ô½ÃÆÇ °íÀ¯¹øÈ£
-	board_uid int NOT NULL COMMENT '°Ô½ÃÆÇ °íÀ¯¹øÈ£',
-	-- °Ô½Ã±Û ÀÛ¼ºÀÚÀÌ¸§
-	board_name varchar(20) NOT NULL COMMENT '°Ô½Ã±Û ÀÛ¼ºÀÚÀÌ¸§',
-	-- °Ô½Ã±Û Á¦¸ñ
-	board_title varchar(50) NOT NULL COMMENT '°Ô½Ã±Û Á¦¸ñ',
-	-- °Ô½Ã±Û ³»¿ë
-	board_content varchar(200) COMMENT '°Ô½Ã±Û ³»¿ë',
-	-- °Ô½Ã±Û ÀÛ¼ºÀÏ
-	board_date date NOT NULL COMMENT '°Ô½Ã±Û ÀÛ¼ºÀÏ',
-	-- °Ô½Ã±Û Á¶È¸¼ö
-	board_viewcnt int NOT NULL COMMENT '°Ô½Ã±Û Á¶È¸¼ö',
+	-- ê²Œì‹œíŒ ê³ ìœ ë²ˆí˜¸
+	board_uid int NOT NULL AUTO_INCREMENT COMMENT 'ê²Œì‹œíŒ ê³ ìœ ë²ˆí˜¸',
+	-- ê²Œì‹œê¸€ ì œëª©
+	board_title varchar(50) NOT NULL COMMENT 'ê²Œì‹œê¸€ ì œëª©',
+	-- ê²Œì‹œê¸€ ë‚´ìš©
+	board_content varchar(200) COMMENT 'ê²Œì‹œê¸€ ë‚´ìš©',
+	-- ê²Œì‹œê¸€ ì‘ì„±ì¼
+	board_date date NOT NULL COMMENT 'ê²Œì‹œê¸€ ì‘ì„±ì¼',
+	-- ê²Œì‹œê¸€ ì¡°íšŒìˆ˜
+	board_viewcnt int NOT NULL COMMENT 'ê²Œì‹œê¸€ ì¡°íšŒìˆ˜',
 	PRIMARY KEY (board_uid)
 );
 
 
 CREATE TABLE st_comment
 (
-	-- ´ñ±Û °íÀ¯¹øÈ£
-	comment_uid int NOT NULL COMMENT '´ñ±Û °íÀ¯¹øÈ£',
-	-- °Ô½Ã±Û ¹øÈ£
-	comment_con_num int NOT NULL COMMENT '°Ô½Ã±Û ¹øÈ£',
-	-- ´ñ±Û ÀÛ¼ºÀÚ¸í
-	comment_name varchar(10) COMMENT '´ñ±Û ÀÛ¼ºÀÚ¸í',
-	-- ´ñ±Û ºñ¹Ğ¹øÈ£
-	comment_pw varchar(20) NOT NULL COMMENT '´ñ±Û ºñ¹Ğ¹øÈ£',
-	-- ´ñ±Û ³»¿ë
-	comment_content varchar(100) NOT NULL COMMENT '´ñ±Û ³»¿ë',
-	-- ´ñ±Û ÀÛ¼ºÀÏ
-	comment_date date NOT NULL COMMENT '´ñ±Û ÀÛ¼ºÀÏ',
+	-- ëŒ“ê¸€ ê³ ìœ ë²ˆí˜¸
+	comment_uid int NOT NULL AUTO_INCREMENT COMMENT 'ëŒ“ê¸€ ê³ ìœ ë²ˆí˜¸',
+	-- ê²Œì‹œê¸€ ë²ˆí˜¸
+	comment_con_num int NOT NULL COMMENT 'ê²Œì‹œê¸€ ë²ˆí˜¸',
+	-- ëŒ“ê¸€ ì‘ì„±ìëª…
+	comment_name varchar(10) COMMENT 'ëŒ“ê¸€ ì‘ì„±ìëª…',
+	-- ëŒ“ê¸€ ë¹„ë°€ë²ˆí˜¸
+	comment_pw varchar(20) NOT NULL COMMENT 'ëŒ“ê¸€ ë¹„ë°€ë²ˆí˜¸',
+	-- ëŒ“ê¸€ ë‚´ìš©
+	comment_content varchar(100) NOT NULL COMMENT 'ëŒ“ê¸€ ë‚´ìš©',
+	-- ëŒ“ê¸€ ì‘ì„±ì¼
+	comment_date date NOT NULL COMMENT 'ëŒ“ê¸€ ì‘ì„±ì¼',
 	PRIMARY KEY (comment_uid)
 );
 
 
 CREATE TABLE st_member
 (
-	-- È¸¿ø °íÀ¯¹øÈ£
-	member_uid int(1) NOT NULL AUTO_INCREMENT COMMENT 'È¸¿ø °íÀ¯¹øÈ£',
-	-- È¸¿ø ÀÌ¸§
-	member_name varchar(20) NOT NULL COMMENT 'È¸¿ø ÀÌ¸§',
-	-- È¸¿ø id
-	member_id varchar(20) DEFAULT '' NOT NULL COMMENT 'È¸¿ø id',
-	-- È¸¿ø pw
-	member_pw varchar(20) NOT NULL COMMENT 'È¸¿ø pw',
-	-- È¸¿ø email
-	member_email varchar(50) NOT NULL COMMENT 'È¸¿ø email',
-	-- È¸¿ø ¼ºº°
-	member_gender varchar(2) NOT NULL COMMENT 'È¸¿ø ¼ºº°',
-	-- È¸¿ø »ıÀÏ
-	member_birth date COMMENT 'È¸¿ø »ıÀÏ',
-	-- È¸¿ø ÀüÈ­¹øÈ£
-	member_phone varchar(20) NOT NULL COMMENT 'È¸¿ø ÀüÈ­¹øÈ£',
+	-- íšŒì› ê³ ìœ ë²ˆí˜¸
+	member_uid int NOT NULL AUTO_INCREMENT COMMENT 'íšŒì› ê³ ìœ ë²ˆí˜¸',
+	-- íšŒì› ì´ë¦„
+	member_name varchar(20) NOT NULL COMMENT 'íšŒì› ì´ë¦„',
+	-- íšŒì› id
+	member_id varchar(20) DEFAULT '' NOT NULL COMMENT 'íšŒì› id',
+	-- íšŒì› pw
+	member_pw varchar(20) NOT NULL COMMENT 'íšŒì› pw',
+	-- íšŒì› email
+	member_email varchar(50) NOT NULL COMMENT 'íšŒì› email',
+	-- íšŒì› ì„±ë³„
+	member_gender varchar(2) NOT NULL COMMENT 'íšŒì› ì„±ë³„',
+	-- íšŒì› ìƒì¼
+	member_birth date COMMENT 'íšŒì› ìƒì¼',
+	-- íšŒì› ì „í™”ë²ˆí˜¸
+	member_phone varchar(20) NOT NULL COMMENT 'íšŒì› ì „í™”ë²ˆí˜¸',
 	PRIMARY KEY (member_uid),
 	UNIQUE (member_id),
 	UNIQUE (member_email)

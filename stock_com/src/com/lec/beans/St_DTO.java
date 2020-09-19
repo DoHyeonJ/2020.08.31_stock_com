@@ -12,13 +12,12 @@ public class St_DTO {
 	private String member_birth;
 	private String member_phone;
 
-	// borad 테이블
-	private int borad_uid;
-	private String borad_name;
-	private String borad_title;
-	private String borad_content;
-	private String borad_date;
-	private int borad_viewcnt;
+	// board 테이블
+	private int board_uid;
+	private String board_title;
+	private String board_content;
+	private String board_date;
+	private int board_viewcnt;
 
 	// comment 테이블
 	private int comment_uid;
@@ -47,16 +46,15 @@ public class St_DTO {
 		this.member_birth = member_birth;
 		this.member_phone = member_phone;
 	}
-	// borad 생성자
-	public St_DTO (int borad_uid, String borad_name, String borad_title, String borad_content, 
-			String borad_date, int borad_viewcnt) {
+	// board 생성자
+	public St_DTO (int board_uid, String board_title, String board_content, 
+			String board_date, int board_viewcnt) {
 		super();
-		this.borad_uid = borad_uid;
-		this.borad_name = borad_name;
-		this.borad_title = borad_title;
-		this.borad_content = borad_content;
-		this.borad_date = borad_date;
-		this.borad_viewcnt = borad_viewcnt;
+		this.board_uid = board_uid;
+		this.board_title = board_title;
+		this.board_content = board_content;
+		this.board_date = board_date;
+		this.board_viewcnt = board_viewcnt;
 	}
 	
 	// comment 생성자
@@ -137,52 +135,44 @@ public class St_DTO {
 		this.member_phone = member_phone;
 	}
 
-	public int getBorad_uid() {
-		return borad_uid;
+	public int getBoard_uid() {
+		return board_uid;
 	}
 
-	public void setBorad_uid(int borad_uid) {
-		this.borad_uid = borad_uid;
+	public void setBoard_uid(int board_uid) {
+		this.board_uid = board_uid;
 	}
 
-	public String getBorad_name() {
-		return borad_name;
+	public String getBoard_title() {
+		return board_title;
 	}
 
-	public void setBorad_name(String borad_name) {
-		this.borad_name = borad_name;
+	public void setBoard_title(String board_title) {
+		this.board_title = board_title;
 	}
 
-	public String getBorad_title() {
-		return borad_title;
+	public String getBoard_content() {
+		return board_content;
 	}
 
-	public void setBorad_title(String borad_title) {
-		this.borad_title = borad_title;
+	public void setBoard_content(String board_content) {
+		this.board_content = board_content;
 	}
 
-	public String getBorad_content() {
-		return borad_content;
+	public String getBoard_date() {
+		return board_date;
 	}
 
-	public void setBorad_content(String borad_content) {
-		this.borad_content = borad_content;
+	public void setBoard_date(String board_date) {
+		this.board_date = board_date;
 	}
 
-	public String getBorad_date() {
-		return borad_date;
+	public int getBoard_viewcnt() {
+		return board_viewcnt;
 	}
 
-	public void setBorad_date(String borad_date) {
-		this.borad_date = borad_date;
-	}
-
-	public int getBorad_viewcnt() {
-		return borad_viewcnt;
-	}
-
-	public void setBorad_viewcnt(int borad_viewcnt) {
-		this.borad_viewcnt = borad_viewcnt;
+	public void setBoard_viewcnt(int board_viewcnt) {
+		this.board_viewcnt = board_viewcnt;
 	}
 
 	public int getComment_uid() {

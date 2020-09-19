@@ -25,15 +25,16 @@ function chkSubmit() {
 <body>
 <h2>글작성</h2>
 <%-- 글 내용이 많을 수 있기 때문에 POST 방식을 사용 --%>
-<form name="frm" action="" method="post" onsubmit="return chkSubmit">
-<input type="text" name="title"/><br>
+<form name="frm" action="boardOk.do" method="post" onsubmit="return chkSubmit">
 제목 : 
+<input type="text" name="title"/><br>
+내용 :<br>
 <textarea name="content"></textarea>
 <br><br>
 <input type="submit" value="등록"/>
 </form>
 <br>
-<button type="button" onclick="location.href=''">목록으로</button>
+<button type="button" onclick="location.href='boardList.do'">목록으로</button>
 </body>
 
 </html>

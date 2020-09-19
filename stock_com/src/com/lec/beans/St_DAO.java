@@ -43,23 +43,21 @@ public class St_DAO {
 	}
 	
 	
-	//새글 작성 <-- 제목,내용,작성자
+	//새글 작성 <-- 제목,내용 [작성자 따로 추가필요]
 	//INSERT
 	public int insert(St_DTO dto) throws SQLException {
-		String title = dto.getBorad_title();
-		String content = dto.getBorad_content();
-		String name = dto.getBorad_name();
+		String title = dto.getBoard_title();
+		String content = dto.getBoard_content();
 		
-		return this.insert(title, content, name);
+		return this.insert(title, content);
 	}
 	
-	public int insert(String title, String content, String name) throws SQLException {
+	public int insert(String title, String content) throws SQLException {
 		int cnt = 0;
 		try {
-			pstmt = conn.prepareStatement(D.SQL_BORAD_INSERT);
+			pstmt = conn.prepareStatement(D.SQL_BOARD_INSERT);
 			pstmt.setString(1, title);
 			pstmt.setString(2, content);
-			pstmt.setString(3, name);
 			cnt = pstmt.executeUpdate();
 		} finally {
 			close();
@@ -73,18 +71,17 @@ public class St_DAO {
 		ArrayList<St_DTO> list = new ArrayList<St_DTO>();
 		
 		while(rs.next()) {
-			int borad_uid = rs.getInt("board_uid");
-			String borad_name = rs.getString("board_name");
-			String borad_title = rs.getString("board_title");
-			String borad_content = rs.getString("board_content");
-			if(borad_content == null) borad_content = "";
+			int board_uid = rs.getInt("board_uid");
+			String board_title = rs.getString("board_title");
+			String board_content = rs.getString("board_content");
+			if(board_content == null) board_content = "";
 			Date d = rs.getDate("board_date");
 			Time t = rs.getTime("board_date");
-			int borad_viewCnt = rs.getInt("board_viewcnt");
-			String borad_date = new SimpleDateFormat("yyyy-mm-dd").format(d) + " "
+			int board_viewCnt = rs.getInt("board_viewcnt");
+			String board_date = new SimpleDateFormat("yyyy-mm-dd").format(d) + " "
 						+ new SimpleDateFormat("hh:mm:ss").format(t);
 			
-			St_DTO dto = new St_DTO(borad_uid, borad_name, borad_title, borad_content,  borad_date, borad_viewCnt);
+			St_DTO dto = new St_DTO(board_uid, board_title, board_content, board_date, board_viewCnt);
 			list.add(dto);
 		}
 		
@@ -99,7 +96,7 @@ public class St_DAO {
 	public St_DTO [] select() throws SQLException {
 		St_DTO [] arr = null;
 		try {
-			pstmt = conn.prepareStatement(D.SQL_BORAD_SELECT);
+			pstmt = conn.prepareStatement(D.SQL_BOARD_SELECT);
 			rs = pstmt.executeQuery();
 			arr = createArray(rs);
 		} finally {
@@ -113,7 +110,7 @@ public class St_DAO {
 		St_DTO [] arr = null;
 		
 		try {
-			pstmt = conn.prepareStatement(D.SQL_BORAD_SELECT_BY_UID);
+			pstmt = conn.prepareStatement(D.SQL_BOARD_SELECT_BY_UID);
 			pstmt.setInt(1, uid);
 			rs = pstmt.executeQuery();
 			arr = createArray(rs);
@@ -135,12 +132,12 @@ public class St_DAO {
 			conn.setAutoCommit(false);
 			
 			//쿼리문 실행
-			pstmt = conn.prepareStatement(D.SQL_BORAD_VIEWCNT);
+			pstmt = conn.prepareStatement(D.SQL_BOARD_VIEWCNT);
 			pstmt.setInt(1, uid);
 			cnt = pstmt.executeUpdate();
 			
 			pstmt.close();
-			pstmt = conn.prepareStatement(D.SQL_BORAD_SELECT_BY_UID);
+			pstmt = conn.prepareStatement(D.SQL_BOARD_SELECT_BY_UID);
 			pstmt.setInt(1, uid);
 			rs = pstmt.executeQuery();
 			
@@ -162,7 +159,7 @@ public class St_DAO {
 		int cnt = 0;
 		
 		try {
-			pstmt = conn.prepareStatement(D.SQL_BORAD_DELETE_BY_UID);
+			pstmt = conn.prepareStatement(D.SQL_BOARD_DELETE_BY_UID);
 			pstmt.setInt(1, uid);
 			cnt = pstmt.executeUpdate();
 		} finally {
@@ -175,7 +172,7 @@ public class St_DAO {
 	public int update(int uid, String title, String content) throws SQLException {
 		int cnt = 0;
 		try {
-			pstmt = conn.prepareStatement(D.SQL_BORAD_UPDATE);
+			pstmt = conn.prepareStatement(D.SQL_BOARD_UPDATE);
 			pstmt.setString(1, title);
 			pstmt.setString(2, content);
 			pstmt.setInt(3, uid);

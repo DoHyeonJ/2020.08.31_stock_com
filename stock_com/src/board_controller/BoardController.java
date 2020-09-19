@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import command.board.Command;
 import command.board.ListCommand;
+import command.board.WriteCommand;
 
 @WebServlet("*.do")
 public class BoardController extends HttpServlet {
@@ -53,6 +54,16 @@ public class BoardController extends HttpServlet {
 			command = new ListCommand();
 			command.execute(request, response);
 			viewPage = "WEB-INF/boardList.jsp";
+			break;
+			
+		case "/board_write.do":
+			viewPage = "board_write.jsp";
+			break;
+
+		case "/boardOk.do":
+			command = new WriteCommand();
+			command.execute(request, response);
+			viewPage = "boardOk.jsp";
 			break;
 		}
 		
