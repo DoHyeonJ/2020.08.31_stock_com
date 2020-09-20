@@ -20,7 +20,7 @@ CREATE TABLE st_board
 	-- 게시글 내용
 	board_content varchar(200) COMMENT '게시글 내용',
 	-- 게시글 작성일
-	board_date date NOT NULL COMMENT '게시글 작성일',
+	board_date datetime NOT NULL COMMENT '게시글 작성일',
 	-- 게시글 조회수
 	board_viewcnt int NOT NULL COMMENT '게시글 조회수',
 	PRIMARY KEY (board_uid)

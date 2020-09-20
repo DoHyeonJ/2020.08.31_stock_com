@@ -48,7 +48,7 @@ public class St_DTO {
 	}
 	// board 생성자
 	public St_DTO (int board_uid, String board_title, String board_content, 
-			String board_date, int board_viewcnt) {
+			int board_viewcnt, String board_date) {
 		super();
 		this.board_uid = board_uid;
 		this.board_title = board_title;

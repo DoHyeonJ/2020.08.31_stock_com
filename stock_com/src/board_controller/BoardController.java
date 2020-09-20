@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import command.board.Command;
+import command.board.DeleteCommand;
 import command.board.ListCommand;
+import command.board.ViewCommand;
 import command.board.WriteCommand;
 
 @WebServlet("*.do")
@@ -56,14 +58,26 @@ public class BoardController extends HttpServlet {
 			viewPage = "WEB-INF/boardList.jsp";
 			break;
 			
-		case "/board_write.do":
-			viewPage = "board_write.jsp";
+		case "/boardWrite.do":
+			viewPage = "boardWrite.jsp";
 			break;
 
 		case "/boardOk.do":
 			command = new WriteCommand();
 			command.execute(request, response);
 			viewPage = "boardOk.jsp";
+			break;
+			
+		case "/boardView.do":
+			command = new ViewCommand();
+			command.execute(request, response);
+			viewPage = "boardView.jsp";
+			break;
+			
+		case "/boardDeleteOk.do":
+			command = new DeleteCommand();
+			command.execute(request, response);
+			viewPage = "boardDeleteOk.jsp";
 			break;
 		}
 		

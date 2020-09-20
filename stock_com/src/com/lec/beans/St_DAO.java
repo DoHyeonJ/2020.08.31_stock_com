@@ -75,13 +75,12 @@ public class St_DAO {
 			String board_title = rs.getString("board_title");
 			String board_content = rs.getString("board_content");
 			if(board_content == null) board_content = "";
+			int board_viewcnt = rs.getInt("board_viewcnt");
 			Date d = rs.getDate("board_date");
 			Time t = rs.getTime("board_date");
-			int board_viewCnt = rs.getInt("board_viewcnt");
-			String board_date = new SimpleDateFormat("yyyy-mm-dd").format(d) + " "
-						+ new SimpleDateFormat("hh:mm:ss").format(t);
+			String board_date = new SimpleDateFormat("yyyy-MM-dd").format(d)+" "+new SimpleDateFormat("hh:mm:ss").format(t);
 			
-			St_DTO dto = new St_DTO(board_uid, board_title, board_content, board_date, board_viewCnt);
+			St_DTO dto = new St_DTO(board_uid, board_title, board_content, board_viewcnt, board_date);
 			list.add(dto);
 		}
 		

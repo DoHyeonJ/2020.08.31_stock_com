@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="com.lec.beans.*" %>  
+<%-- jstl 지시자 선언 --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <% 
 	St_DTO [] arr = (St_DTO [] )request.getAttribute("list");
 %>
@@ -26,7 +28,7 @@
 		for(int i=0; i < arr.length; i++){
 			out.println("<tr>");
 			out.println("<td>" + arr[i].getBoard_uid() + "</td>");
-			out.println("<td><a href='board_view.do?uid=" + arr[i].getBoard_uid() + "'>" + arr[i].getBoard_title() + "</a></td>");
+			out.println("<td><a href='boardView.do?uid=" + arr[i].getBoard_uid() + "'>" + arr[i].getBoard_title() + "</a></td>");
 			out.println("<td>" + arr[i].getMember_name() + "</td>");
 			out.println("<td>" + arr[i].getBoard_viewcnt() + "</td>");
 			out.println("<td>" + arr[i].getBoard_date() + "</td>");
@@ -35,6 +37,6 @@
 %>
 		</table>
 		<br>
-		<button onclick="location.href='board_write.do'">신규등록</button>
+		<button onclick="location.href='boardWrite.do'">신규등록</button>
 </body>
 </html>
