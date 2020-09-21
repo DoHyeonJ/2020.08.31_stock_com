@@ -25,7 +25,7 @@ function chkSubmit() {
 <body>
 <h2>글작성</h2>
 <%-- 글 내용이 많을 수 있기 때문에 POST 방식을 사용 --%>
-<form name="frm" action="boardOk.do" method="post" onsubmit="return chkSubmit">
+<form name="frm" action="boardWriteOk.do" method="post" onsubmit="return chkSubmit">
 제목 : 
 <input type="text" name="title"/><br>
 내용 :<br>

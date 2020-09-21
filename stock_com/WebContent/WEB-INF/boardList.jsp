@@ -3,8 +3,8 @@
 <%@ page import="com.lec.beans.*" %>  
 <%-- jstl 지시자 선언 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<% 
-	St_DTO [] arr = (St_DTO [] )request.getAttribute("list");
+<%
+	Board_DTO [] arr = (Board_DTO [] )request.getAttribute("list");
 %>
 
 <!DOCTYPE html>

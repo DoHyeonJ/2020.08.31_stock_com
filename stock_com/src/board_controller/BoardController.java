@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import command.board.Command;
 import command.board.DeleteCommand;
 import command.board.ListCommand;
+import command.board.SelectCommand;
+import command.board.UpdateCommand;
 import command.board.ViewCommand;
 import command.board.WriteCommand;
 
@@ -62,16 +64,28 @@ public class BoardController extends HttpServlet {
 			viewPage = "boardWrite.jsp";
 			break;
 
-		case "/boardOk.do":
+		case "/boardWriteOk.do":
 			command = new WriteCommand();
 			command.execute(request, response);
-			viewPage = "boardOk.jsp";
+			viewPage = "boardWriteOk.jsp";
 			break;
 			
 		case "/boardView.do":
 			command = new ViewCommand();
 			command.execute(request, response);
 			viewPage = "boardView.jsp";
+			break;
+			
+		case "/boardUpdate.do":
+			command = new SelectCommand();
+			command.execute(request, response);
+			viewPage = "boardUpdate.jsp";
+			break;
+			
+		case "/boardUpdateOk.do":
+			command = new UpdateCommand();
+			command.execute(request, response);
+			viewPage = "boardUpdateOk.jsp";
 			break;
 			
 		case "/boardDeleteOk.do":

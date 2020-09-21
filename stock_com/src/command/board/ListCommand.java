@@ -5,15 +5,15 @@ import java.sql.SQLException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.lec.beans.St_DAO;
-import com.lec.beans.St_DTO;
+import com.lec.beans.Board_DAO;
+import com.lec.beans.Board_DTO;
 
 public class ListCommand implements Command {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
-		St_DAO dao = new St_DAO();
-		St_DTO [] arr = null;
+		Board_DAO dao = new Board_DAO();
+		Board_DTO [] arr = null;
 		
 		try {
 			arr = dao.select();

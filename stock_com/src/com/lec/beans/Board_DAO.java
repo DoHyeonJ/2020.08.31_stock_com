@@ -13,14 +13,14 @@ import java.util.Date;
 
 import common.D;
 
-public class St_DAO {
+public class Board_DAO {
 	Connection conn;
 	PreparedStatement pstmt;
 	Statement stmt;
 	ResultSet rs;
 	
 	// DAO 객체가 생성될때 Connection 도 생성됨.
-	public St_DAO() {
+	public Board_DAO() {
 		try {
 			Class.forName(D.DRIVER);
 			conn = DriverManager.getConnection(D.URL, D.USERID, D.USERPW);
@@ -45,7 +45,7 @@ public class St_DAO {
 	
 	//새글 작성 <-- 제목,내용 [작성자 따로 추가필요]
 	//INSERT
-	public int insert(St_DTO dto) throws SQLException {
+	public int insert(Board_DTO dto) throws SQLException {
 		String title = dto.getBoard_title();
 		String content = dto.getBoard_content();
 		
@@ -67,8 +67,8 @@ public class St_DAO {
 	}
 	
 	// Resultset --> DTO 배열로 변환 리턴
-	public St_DTO [] createArray(ResultSet rs) throws SQLException {
-		ArrayList<St_DTO> list = new ArrayList<St_DTO>();
+	public Board_DTO [] createArray(ResultSet rs) throws SQLException {
+		ArrayList<Board_DTO> list = new ArrayList<Board_DTO>();
 		
 		while(rs.next()) {
 			int board_uid = rs.getInt("board_uid");
@@ -80,20 +80,20 @@ public class St_DAO {
 			Time t = rs.getTime("board_date");
 			String board_date = new SimpleDateFormat("yyyy-MM-dd").format(d)+" "+new SimpleDateFormat("hh:mm:ss").format(t);
 			
-			St_DTO dto = new St_DTO(board_uid, board_title, board_content, board_viewcnt, board_date);
+			Board_DTO dto = new Board_DTO(board_uid, board_title, board_content, board_viewcnt, board_date);
 			list.add(dto);
 		}
 		
 		int size = list.size();
-		St_DTO [] arr = new St_DTO[size];
+		Board_DTO [] arr = new Board_DTO[size];
 		list.toArray(arr);
 		return arr;
 	}
 	
 	// 글 목록 읽어오기
 	// SELECT
-	public St_DTO [] select() throws SQLException {
-		St_DTO [] arr = null;
+	public Board_DTO [] select() throws SQLException {
+		Board_DTO [] arr = null;
 		try {
 			pstmt = conn.prepareStatement(D.SQL_BOARD_SELECT);
 			rs = pstmt.executeQuery();
@@ -105,8 +105,8 @@ public class St_DAO {
 	}
 	
 	//특정 uid 의 글만 읽어오기
-	public St_DTO [] selectByuid(int uid) throws SQLException {
-		St_DTO [] arr = null;
+	public Board_DTO [] selectByuid(int uid) throws SQLException {
+		Board_DTO [] arr = null;
 		
 		try {
 			pstmt = conn.prepareStatement(D.SQL_BOARD_SELECT_BY_UID);
@@ -122,9 +122,9 @@ public class St_DAO {
 	
 	// 특정 uid 의 글만 읽어오기  + 조회수 증가
 	// SELECT, UPDATE
-	public St_DTO[] readByUid (int uid) throws SQLException{
+	public Board_DTO[] readByUid (int uid) throws SQLException{
 		int cnt =0;
-		St_DTO arr[] = null;
+		Board_DTO arr[] = null;
 		
 		try {
 			// 트랜잭션 처리
