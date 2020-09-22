@@ -1,6 +1,6 @@
 package com.lec.beans;
 
-public class Board_DTO {
+public class St_DTO {
 
 	// member 테이블
 	private int member_uid;
@@ -28,13 +28,13 @@ public class Board_DTO {
 	private String comment_date;
 
 	// 기본생성자
-	public Board_DTO() {
+	public St_DTO() {
 		super();
 		System.out.println("St_DTO() 객체생성");
 	}
 	
 	// member 생성자 (매개변수 받는 생성자)
-	public Board_DTO (int member_uid, String member_name, String member_id, String member_pw, 
+	public St_DTO (int member_uid, String member_name, String member_id, String member_pw, 
 			String member_email, String member_gender, String member_birth, String member_phone){
 		super();
 		this.member_uid = member_uid;
@@ -47,7 +47,7 @@ public class Board_DTO {
 		this.member_phone = member_phone;
 	}
 	// board 생성자
-	public Board_DTO (int board_uid, String board_title, String board_content, 
+	public St_DTO (int board_uid, String board_title, String board_content, 
 			int board_viewcnt, String board_date) {
 		super();
 		this.board_uid = board_uid;
@@ -58,7 +58,7 @@ public class Board_DTO {
 	}
 	
 	// comment 생성자
-	public Board_DTO (int comment_uid, int comment_con_num,String comment_name, String comment_pw, 
+	public St_DTO (int comment_uid, int comment_con_num,String comment_name, String comment_pw, 
 			String comment_content, String comment_date) {
 		super();
 		this.comment_uid = comment_uid;

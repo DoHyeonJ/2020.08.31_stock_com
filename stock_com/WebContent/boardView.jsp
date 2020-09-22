@@ -4,7 +4,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 	//Controller 로부터 결과 데이터를 받아옴
-	Board_DTO [] arr = (Board_DTO []) request.getAttribute("list");
+	St_DTO [] arr = (St_DTO []) request.getAttribute("list");
 %>    
 
 <% if(arr == null || arr.length == 0){ %>

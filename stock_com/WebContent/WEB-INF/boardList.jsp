@@ -4,7 +4,7 @@
 <%-- jstl 지시자 선언 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
-	Board_DTO [] arr = (Board_DTO [] )request.getAttribute("list");
+	St_DTO [] arr = (St_DTO [] )request.getAttribute("list");
 %>
 
 <!DOCTYPE html>
