@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="com.lec.beans.*" %> 
+<%@ page import="DTO.*" %> 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 	//Controller 로부터 결과 데이터를 받아옴
-	St_DTO [] arr = (St_DTO []) request.getAttribute("list");
+	Board_DTO [] arr = (Board_DTO []) request.getAttribute("list");
 %>    
 
 <% if(arr == null || arr.length == 0){ %>

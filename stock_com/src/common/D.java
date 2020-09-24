@@ -9,10 +9,10 @@ public class D {
 	//회원가입, 로그인 관련 쿼리문
 	public static final String SQL_MEMBER_INSERT =
 			"INSERT INTO st_member"
-			+"(member_uid, member_name, member_id, member_pw, member_email,"
+			+"(member_name, member_id, member_pw, member_email,"
 			+" member_gender, member_birth, member_phone)"
 			+"VALUES"
-			+"(?, ?, ?, ?, ?, ?, ?, ?)";
+			+"(?, ?, ?, ?, ?, ?, ?)";
 	
 	//게시글 관련 쿼리문
 	public static final String SQL_BOARD_INSERT =
