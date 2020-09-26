@@ -41,4 +41,20 @@ public class D {
 	//게시글 수정
 	public static final String SQL_BOARD_UPDATE =
 			"UPDATE st_board SET board_title = ?, board_content = ? WHERE board_uid = ?";
+	
+	//회원가입 중복체크
+	public static final String SQL_MEMBER_IDCHECK =
+			"SELECT * FROM st_board WHERE member_id = ?";
 }
+
+
+
+
+
+
+
+
+
+
+
+

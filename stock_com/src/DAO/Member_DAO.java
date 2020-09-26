@@ -42,7 +42,7 @@ public class Member_DAO {
 		if(conn != null) conn.close();
 	}
 
-//INSERT
+//INSERT 회원가입
 public int insert(Member_DTO dto) throws SQLException {
 	String name = dto.getMember_name();
 	String id = dto.getMember_id();
@@ -98,3 +98,20 @@ public Member_DTO [] createArray(ResultSet rs) throws SQLException {
 	return arr;
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

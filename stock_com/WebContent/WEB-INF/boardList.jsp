@@ -4,7 +4,8 @@
 <%-- jstl 지시자 선언 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
-	Board_DTO [] arr = (Board_DTO [] )request.getAttribute("list");
+	Board_DTO [] boa_arr = (Board_DTO [] )request.getAttribute("list");
+	Member_DTO [] mem_arr = (Member_DTO [] )request.getAttribute("list");
 %>
 
 <!DOCTYPE html>
@@ -25,13 +26,13 @@
 				<th>등록일</th>
 			<tr>
 <%
-		for(int i=0; i < arr.length; i++){
+		for(int i=0; i <= boa_arr.length; i++){
 			out.println("<tr>");
-			out.println("<td>" + arr[i].getBoard_uid() + "</td>");
-			out.println("<td><a href='boardView.do?uid=" + arr[i].getBoard_uid() + "'>" + arr[i].getBoard_title() + "</a></td>");
-			out.println("<td>" + arr[i].getMember_name() + "</td>");
-			out.println("<td>" + arr[i].getBoard_viewcnt() + "</td>");
-			out.println("<td>" + arr[i].getBoard_date() + "</td>");
+			out.println("<td>" + boa_arr[i].getBoard_uid() + "</td>");
+			out.println("<td><a href='boardView.do?uid=" + boa_arr[i].getBoard_uid() + "'>" + boa_arr[i].getBoard_title() + "</a></td>");
+			out.println("<td>" + mem_arr[i].getMember_name() + "</td>");
+			out.println("<td>" + boa_arr[i].getBoard_viewcnt() + "</td>");
+			out.println("<td>" + boa_arr[i].getBoard_date() + "</td>");
 			out.println("</tr>");
 		}
 %>
