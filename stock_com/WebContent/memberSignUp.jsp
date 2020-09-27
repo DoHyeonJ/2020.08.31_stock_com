@@ -54,16 +54,18 @@ function chkSubmit(){
 </script>
 <body>
 <h2>회원가입</h2>
-<%-- action 부분 memberSignOk.do 작성필요 --%>
 <form name ="frm" action="memberSignOk.do" method="post" onsubmit="return chkSubmit">
 이름 : 
 <input type="text" name="name"/><br>
 id :
 <input type="text" name="id"/><br>
 pw :
-<input type="password" name="id"/><br>
+<input type="password" name="pw"/><br>
 email :
 <input type="text" name="email"/><br>
+성별 : 
+<input type="radio" name="gender" value="1" checked="checked"/>남자
+<input type="radio" name="gender" value="2"/>여자<br>
 생일 : 
 <input type="text" name="birth"/><br>
 휴대폰 번호 : 

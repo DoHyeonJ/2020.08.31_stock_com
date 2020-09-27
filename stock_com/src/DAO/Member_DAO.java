@@ -24,7 +24,7 @@ public class Member_DAO {
 		try {
 			Class.forName(D.DRIVER);
 			conn = DriverManager.getConnection(D.URL, D.USERID, D.USERPW);
-			System.out.println("St_DAO 객체 생성, 데이터베이스 연결.");
+			System.out.println("Member_DAO 객체 생성, 데이터베이스 연결.");
 		//클래스를 찾지 못했을때의 예외처리
 		} catch (ClassNotFoundException e) { 
 			e.printStackTrace();
@@ -52,6 +52,7 @@ public int insert(Member_DTO dto) throws SQLException {
 	String birth = dto.getMember_birth();
 	String phone = dto.getMember_phone();
 	
+	System.out.println("회원가입 버튼눌림");
 	return this.insert(name, id, pw, email, gender, birth, phone);
 }
 
@@ -67,6 +68,7 @@ public int insert(String name, String id, String pw, String email, String gender
 		pstmt.setString(6, birth);
 		pstmt.setString(7, phone);
 		cnt = pstmt.executeUpdate();
+		System.out.println("cnt값 들어감");
 	} finally {
 		close();
 	}
@@ -87,7 +89,7 @@ public Member_DTO [] createArray(ResultSet rs) throws SQLException {
 		Date d = rs.getDate("Member_birth");
 		String member_birth = new SimpleDateFormat("yyyy-MM-dd").format(d);
 		String member_phone = rs.getString("member_phone");
-		
+		System.out.println("배열로 변환");
 		Member_DTO dto = new Member_DTO(member_uid, member_name, member_id, member_pw, member_email, member_gender, member_birth, member_phone);
 		list.add(dto);
 	}

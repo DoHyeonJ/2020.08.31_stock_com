@@ -1,4 +1,4 @@
-package command.board;
+package command;
 
 import java.sql.SQLException;
 
@@ -6,24 +6,24 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import DAO.Board_DAO;
+import DTO.Board_DTO;
 
-public class DeleteCommand implements Command{
+public class SelectCommand implements Command {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
-		int cnt = 0;
 		Board_DAO dao = new Board_DAO();
-		
-		//입력한 값을 받아오기
+		Board_DTO [] arr = null;		
+		//매개변수 검증 필요
 		int uid = Integer.parseInt(request.getParameter("uid"));
 		
 		try {
-			cnt = dao.deleteByUid(uid);
+			// 읽기 only 
+			arr = dao.selectByuid(uid);
+			request.setAttribute("list", arr);
+			//만약 ConnectionPool 을 사용한다면 여기서 NamingException 도 catch 해야 한다
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
-		request.setAttribute("result", cnt);
-		
-	} //end execute()
-} //end Command
+	} // end execute()
+} // end Command

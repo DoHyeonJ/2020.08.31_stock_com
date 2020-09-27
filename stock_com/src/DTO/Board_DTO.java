@@ -24,7 +24,7 @@ public class Board_DTO {
 		this.board_content = board_content;
 		this.board_date = board_date;
 		this.board_viewcnt = board_viewcnt;
-	}
+	}		
 	
 	// getter /setter
 

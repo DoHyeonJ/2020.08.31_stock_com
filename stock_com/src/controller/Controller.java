@@ -9,19 +9,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import command.board.Command;
-import command.board.DeleteCommand;
-import command.board.ListCommand;
-import command.board.SelectCommand;
-import command.board.UpdateCommand;
-import command.board.ViewCommand;
-import command.board.WriteCommand;
+import command.Command;
+import command.DeleteCommand;
+import command.ListCommand;
+import command.SelectCommand;
+import command.SignUpCommand;
+import command.UpdateCommand;
+import command.ViewCommand;
+import command.WriteCommand;
+
 
 @WebServlet("*.do")
-public class BoardController extends HttpServlet {
+public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public BoardController() {
+    public Controller() {
         super();
         
     }
@@ -92,6 +94,16 @@ public class BoardController extends HttpServlet {
 			command = new DeleteCommand();
 			command.execute(request, response);
 			viewPage = "boardDeleteOk.jsp";
+			break;
+			
+		case "/memberSignUp.do":
+			viewPage = "memberSignUp.jsp";
+			break;
+			
+		case "/memberSignOk.do":
+			command = new SignUpCommand();
+			command.execute(request, response);
+			viewPage = "memberSignOk.jsp";
 			break;
 		}
 		

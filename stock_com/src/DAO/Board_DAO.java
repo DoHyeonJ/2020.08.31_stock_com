@@ -25,7 +25,7 @@ public class Board_DAO {
 		try {
 			Class.forName(D.DRIVER);
 			conn = DriverManager.getConnection(D.URL, D.USERID, D.USERPW);
-			System.out.println("St_DAO 객체 생성, 데이터베이스 연결.");
+			System.out.println("Board_DAO 객체 생성, 데이터베이스 연결.");
 		//클래스를 찾지 못했을때의 예외처리
 		} catch (ClassNotFoundException e) { 
 			e.printStackTrace();
@@ -48,7 +48,6 @@ public class Board_DAO {
 	public int insert(Board_DTO dto) throws SQLException {
 		String title = dto.getBoard_title();
 		String content = dto.getBoard_content();
-		
 		return this.insert(title, content);
 	}
 	
@@ -79,7 +78,6 @@ public class Board_DAO {
 			Date d = rs.getDate("board_date");
 			Time t = rs.getTime("board_date");
 			String board_date = new SimpleDateFormat("yyyy-MM-dd").format(d)+" "+new SimpleDateFormat("hh:mm:ss").format(t);
-			
 			Board_DTO dto = new Board_DTO(board_uid, board_title, board_content, board_viewcnt, board_date);
 			list.add(dto);
 		}
