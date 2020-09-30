@@ -45,6 +45,7 @@ public class D {
 	//회원가입 중복체크
 	public static final String SQL_MEMBER_IDCHECK =
 			"SELECT * FROM st_board WHERE member_id = ?";
+	
 }
 
 
