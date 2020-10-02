@@ -99,15 +99,21 @@ public Member_DTO [] createArray(ResultSet rs) throws SQLException {
 	}
 
 // 회원가입 id 중복확인
-public boolean idCheck (String id) throws SQLException {
-	boolean check = false;
+public int idCheck (String id) throws SQLException {
 		try {
 			pstmt = conn.prepareStatement(D.SQL_MEMBER_IDCHECK);
-			check = pstmt.execute();
-		}finally{
-			close();
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				return 1;
+			}else {//아이디 없으면 0반환
+				return 0;
+			}
+		}catch(Exception e){
+			e.printStackTrace();
 		}
-		return check;
+		//오류 발생시 -1 반환
+		return -1;
 	}
 }
 

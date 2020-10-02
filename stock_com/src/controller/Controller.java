@@ -105,8 +105,8 @@ public class Controller extends HttpServlet {
 			command.execute(request, response);
 			viewPage = "memberSignOk.jsp";
 			break;
-		}
 		
+		}
 		// 2.View(*.jsp) 선택
 		
 		// 위에서 결정된  view 에 forward 해줌
