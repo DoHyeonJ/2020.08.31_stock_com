@@ -17,9 +17,9 @@ public class D {
 	//게시글 관련 쿼리문
 	public static final String SQL_BOARD_INSERT =
 			"INSERT INTO st_board"
-			+"(board_title, board_content)"
+			+"(board_id, board_title, board_content)"
 			+"VALUES"
-			+"(?, ?)";
+			+"(?, ?, ?)";
 	//댓글 관련 쿼리문
 	public static final String SQL_COMMENT_INSERT =
 			"INSERT INTO st_comment"

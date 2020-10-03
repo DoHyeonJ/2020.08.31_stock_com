@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <% // Controller로부터 결과를 받아옴.
  	int cnt = (Integer)request.getAttribute("result");
+	String id = request.getParameter("id");
 %>
 
 <%-- 위에서 필요한 트랜잭션이 마무리 되면 페이지에 보여주기 --%>

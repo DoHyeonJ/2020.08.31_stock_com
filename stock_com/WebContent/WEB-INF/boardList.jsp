@@ -29,7 +29,7 @@
 			out.println("<tr>");
 			out.println("<td>" + arr[i].getBoard_uid() + "</td>");
 			out.println("<td><a href='boardView.do?uid=" + arr[i].getBoard_uid() + "'>" + arr[i].getBoard_title() + "</a></td>");
-			out.println("<td>" +  "</td>");
+			out.println("<td>" + arr[i].getBoard_id() + "</td>");
 			out.println("<td>" + arr[i].getBoard_viewcnt() + "</td>");
 			out.println("<td>" + arr[i].getBoard_date() + "</td>");
 			out.println("</tr>");
@@ -37,6 +37,8 @@
 %>
 		</table>
 		<br>
-		<button onclick="location.href='boardWrite.do'">신규등록</button>
+		<button onclick="location.href='memberLogin.do'">로그인</button>
+		<button onclick="location.href='memberSignUp.do'">회원가입</button>
+		<button onclick="location.href='board/boardWrite.jsp'">신규등록</button>
 </body>
 </html>

@@ -4,6 +4,7 @@ public class Board_DTO {
 
 	// board 테이블
 	private int board_uid;
+	private String board_id;
 	private String board_title;
 	private String board_content;
 	private String board_date;
@@ -16,10 +17,11 @@ public class Board_DTO {
 	}
 	
 	// board 생성자
-	public Board_DTO (int board_uid, String board_title, String board_content, 
+	public Board_DTO (int board_uid, String board_id, String board_title, String board_content, 
 			int board_viewcnt, String board_date) {
 		super();
 		this.board_uid = board_uid;
+		this.board_id = board_id;
 		this.board_title = board_title;
 		this.board_content = board_content;
 		this.board_date = board_date;
@@ -36,6 +38,14 @@ public class Board_DTO {
 		this.board_uid = board_uid;
 	}
 
+	public String getBoard_id() {
+		return board_id;
+	}
+	
+	public void setBoard_id(String board_id) {
+		this.board_id = board_id;
+	}
+	
 	public String getBoard_title() {
 		return board_title;
 	}

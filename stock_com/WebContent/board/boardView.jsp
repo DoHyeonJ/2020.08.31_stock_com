@@ -18,6 +18,7 @@
 %>
 <%
 	int uid = arr[0].getBoard_uid();
+	String id = arr[0].getBoard_id();
 	String title = arr[0].getBoard_title();
 	String content = arr[0].getBoard_content();
 	String date = arr[0].getBoard_date();
@@ -44,7 +45,7 @@ function chkDelete(id){
 <body>
 <h2>읽기 <%= title %></h2>
 <br>
-id : <%= uid %><br>
+작성자명 : <%= id %><br>
 제목 : <%= title %><br>
 등록일 : <%= date %><br>
 조회수 : <%= viewCnt %><br>

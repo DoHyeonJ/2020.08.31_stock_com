@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="DTO.Member_DTO"%>
+<%
+	String id = (String)session.getAttribute("id");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,10 +28,13 @@ function chkSubmit(){
 </script>
 <body>
 <h2>글작성</h2>
+<%
+	out.println(id);
+%>
 <%-- 글 내용이 많을 수 있기 때문에 POST 방식을 사용 --%>
-<%-- post 되는부분  WriteCommand.java 확인하기 --%>
 <form name="frm" action="boardWriteOk.do" method="post" onsubmit="return chkSubmit()">
-<input type="hidden" name="name" value="<%request.getParameter("name");%>">
+<%-- 작성자명을 보내주기 위한 hidden --%>
+<input type="hidden" name="id" value="<%=id%>">
 제목 : 
 <input type="text" name="title"/><br>
 내용 :<br>

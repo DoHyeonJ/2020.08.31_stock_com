@@ -46,17 +46,19 @@ public class Board_DAO {
 	//새글 작성 <-- 제목,내용 [작성자 따로 추가필요]
 	//INSERT
 	public int insert(Board_DTO dto) throws SQLException {
+		String id = dto.getBoard_id();
 		String title = dto.getBoard_title();
 		String content = dto.getBoard_content();
-		return this.insert(title, content);
+		return this.insert(id, title, content);
 	}
 	
-	public int insert(String title, String content) throws SQLException {
+	public int insert(String id, String title, String content) throws SQLException {
 		int cnt = 0;
 		try {
 			pstmt = conn.prepareStatement(D.SQL_BOARD_INSERT);
-			pstmt.setString(1, title);
-			pstmt.setString(2, content);
+			pstmt.setString(1, id);
+			pstmt.setString(2, title);
+			pstmt.setString(3, content);
 			cnt = pstmt.executeUpdate();
 		} finally {
 			close();
@@ -71,6 +73,7 @@ public class Board_DAO {
 		
 		while(rs.next()) {
 			int board_uid = rs.getInt("board_uid");
+			String board_id = rs.getString("board_id");
 			String board_title = rs.getString("board_title");
 			String board_content = rs.getString("board_content");
 			if(board_content == null) board_content = "";
@@ -78,7 +81,7 @@ public class Board_DAO {
 			Date d = rs.getDate("board_date");
 			Time t = rs.getTime("board_date");
 			String board_date = new SimpleDateFormat("yyyy-MM-dd").format(d)+" "+new SimpleDateFormat("hh:mm:ss").format(t);
-			Board_DTO dto = new Board_DTO(board_uid, board_title, board_content, board_viewcnt, board_date);
+			Board_DTO dto = new Board_DTO(board_uid, board_id, board_title, board_content, board_viewcnt, board_date);
 			list.add(dto);
 		}
 		

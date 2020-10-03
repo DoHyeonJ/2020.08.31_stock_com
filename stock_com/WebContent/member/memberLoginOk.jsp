@@ -20,8 +20,8 @@
 
 	//로그인에 성공하면 사용자 아이디를 세션변수에 저장한다.
 	session.setAttribute("id", id);
-}
-	response.sendRedirect("index.jsp");
+	}
+	response.sendRedirect("index.do");
 %>
 <%-- 위에서 필요한 트랜잭션이 마무리 되면 페이지에 보여주기 --%>
 
