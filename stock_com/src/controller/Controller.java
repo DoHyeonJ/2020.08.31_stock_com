@@ -110,6 +110,10 @@ public class Controller extends HttpServlet {
 			viewPage = "member/memberSignOk.jsp";
 			break;
 			
+		case "/memberConfirmId.do":
+			viewPage = "member/memberConfirmId.jsp";
+			break;
+			
 		case "/memberLogin.do":
 			viewPage = "member/memberLogin.jsp";
 			break;

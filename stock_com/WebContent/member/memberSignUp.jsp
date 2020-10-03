@@ -7,16 +7,17 @@
 <title>회원가입 페이지입니다.</title>
 </head>
 <script>
-
+var idCheckOk = 0;
 //id 중복확인 
 function confirmId(){
 	if(document.frm.id.value == ""){
 		alert("ID를 입력하세요");
 		return;
 	}
-	url = "member/memberConfirmId.jsp?id=" + document.frm.id.value;
+	url = "memberConfirmId.do?id=" + document.frm.id.value;
 	open(url, "confirm",
 		"toobar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=no,width=300,height=200"	)
+	idCheckOk =1;
 }
 
 function chkSubmit(){
@@ -46,6 +47,11 @@ function chkSubmit(){
 	}
 	if(id == ""){
 		alert("id를 입력해주세요.")
+		frm["id"].focus();
+		return false
+	}
+	if(idCheckOk == 0){
+		alert("ID중복체크를 해주세요.")
 		frm["id"].focus();
 		return false
 	}
