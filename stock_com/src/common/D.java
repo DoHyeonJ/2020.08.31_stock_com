@@ -45,7 +45,9 @@ public class D {
 	//회원가입 중복체크
 	public static final String SQL_MEMBER_IDCHECK =
 			"SELECT * FROM st_member WHERE member_id = ?";
-	
+	//로그인 확인
+	public static final String SQL_MEMBER_LOGIN = 
+			"SELECT * FROM st_member WHERE member_id = ? AND member_pw = ?";
 }
 
 

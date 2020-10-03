@@ -56,6 +56,10 @@ public class Controller extends HttpServlet {
 		
 		// 1.커맨드 객체 수행
 		switch (com) {
+		case "/index.do":
+			viewPage = "index.jsp";
+			break;
+			
 		case "/boardList.do":
 			command = new ListCommand();
 			command.execute(request, response);
@@ -63,49 +67,62 @@ public class Controller extends HttpServlet {
 			break;
 			
 		case "/boardWrite.do":
-			viewPage = "boardWrite.jsp";
+			viewPage = "board/boardWrite.jsp";
 			break;
 
 		case "/boardWriteOk.do":
 			command = new WriteCommand();
 			command.execute(request, response);
-			viewPage = "boardWriteOk.jsp";
+			viewPage = "board/boardWriteOk.jsp";
 			break;
 			
 		case "/boardView.do":
 			command = new ViewCommand();
 			command.execute(request, response);
-			viewPage = "boardView.jsp";
+			viewPage = "board/boardView.jsp";
 			break;
 			
 		case "/boardUpdate.do":
 			command = new SelectCommand();
 			command.execute(request, response);
-			viewPage = "boardUpdate.jsp";
+			viewPage = "board/boardUpdate.jsp";
 			break;
 			
 		case "/boardUpdateOk.do":
 			command = new UpdateCommand();
 			command.execute(request, response);
-			viewPage = "boardUpdateOk.jsp";
+			viewPage = "board/boardUpdateOk.jsp";
 			break;
 			
 		case "/boardDeleteOk.do":
 			command = new DeleteCommand();
 			command.execute(request, response);
-			viewPage = "boardDeleteOk.jsp";
+			viewPage = "board/boardDeleteOk.jsp";
 			break;
 			
 		case "/memberSignUp.do":
-			viewPage = "memberSignUp.jsp";
+			viewPage = "member/memberSignUp.jsp";
 			break;
 			
 		case "/memberSignOk.do":
 			command = new SignUpCommand();
 			command.execute(request, response);
-			viewPage = "memberSignOk.jsp";
+			viewPage = "member/memberSignOk.jsp";
+			break;
+			
+		case "/memberLogin.do":
+			viewPage = "member/memberLogin.jsp";
 			break;
 		
+		case "/memberLoginOk.do":
+			//로그인확인 작성필요
+			viewPage = "member/memberLoginOk.jsp";
+			break;
+			
+		case "/memberLogout.do":
+			viewPage = "member/memberLogout.jsp";
+			break;
+
 		}
 		// 2.View(*.jsp) 선택
 		

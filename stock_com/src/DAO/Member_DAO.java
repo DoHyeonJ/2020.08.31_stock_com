@@ -109,13 +109,30 @@ public int idCheck (String id) throws SQLException {
 			}else {//아이디 없으면 0반환
 				return 0;
 			}
-		}catch(Exception e){
+		}catch(SQLException e){
 			e.printStackTrace();
 		}
 		//오류 발생시 -1 반환
 		return -1;
 	}
-}
+// 로그인 Check
+public int login (String id, String pw) throws SQLException {
+	try {
+		pstmt = conn.prepareStatement(D.SQL_MEMBER_LOGIN);
+		pstmt.setString(1, id);
+		pstmt.setString(2, pw);
+		rs = pstmt.executeQuery();
+		if(rs.next()) {
+			return 1;
+		}else {//로그인 실패시 0반환
+			return 0;
+		}
+	} catch (SQLException e) {
+		e.printStackTrace();
+	}
+	return -1;
+	}
+} //클래스 닫힘
 
 
 

@@ -8,7 +8,7 @@
 %>
 
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="UTF-8">
 <head>
 <meta charset="UTF-8">
 <title>게시글 목록</title>
