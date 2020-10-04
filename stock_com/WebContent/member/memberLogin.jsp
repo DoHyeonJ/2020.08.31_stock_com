@@ -37,6 +37,7 @@ id :
 <input type="text" name="id"><br>
 pw :
 <input type="password" name="pw"><br>
+<input type="button" onclick="location.href='memberSignUp.do'" value="회원가입">
 <input type="submit" value="로그인"/>
 </form>
 </body>

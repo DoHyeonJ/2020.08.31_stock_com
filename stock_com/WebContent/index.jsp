@@ -11,6 +11,5 @@
 		out.println(id+"님 반갑습니다.<br>");	
 		out.println("<a href='memberLogout.do'>로그아웃</a>"); 
 		out.println("<a href='boardList.do'>게시글목록</a>");
-		response.sendRedirect("boardWrite.do");
 	}
 %>

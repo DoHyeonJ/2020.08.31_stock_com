@@ -119,6 +119,7 @@ email :
 <input type="text" name="birth"/> [ ex) 19950803 ]<br>
 휴대폰 번호 : 
 <input type="text" name="phone"/> [ "-"를 제외하고 입력해주세요. ]<br>
+<input type="button" onclick="location.href='memberLogin.do'" value="로그인">
 <input type="submit" value="회원가입"/>
 </form>
 </body>

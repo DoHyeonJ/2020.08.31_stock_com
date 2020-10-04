@@ -20,7 +20,7 @@ public class WriteCommand implements Command {
 		String content = request.getParameter("content");
 		
 		//parameter 유효성 검증
-		if(title != null && title.trim().length() > 0) {
+		if(id!= null && id.trim().length() > 0 && title != null && title.trim().length() > 0) {
 			try {
 				cnt = dao.insert(id, title, content);
 			} catch (SQLException e) {

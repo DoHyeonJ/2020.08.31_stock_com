@@ -56,11 +56,13 @@ function chkDelete(id){
 </div>
 <hr>
 <br>
+<%-- 세션값과 현재보고있는 글의 id값이 일치할때 수정하기, 삭제하기 권한부여 --%>
+<%if(session.getAttribute("id").equals(id)){%>
 <button onclick="location.href = 'boardUpdate.do?uid=<%= uid%>'">수정하기</button>
-<button onclick="location.href = 'boardList.do'">목록보기</button>
 <button onclick="chkDelete(<%= uid%>)">삭제하기</button>
+<%} %>
+<button onclick="location.href = 'boardList.do'">목록보기</button>
 <button onclick="location.href = 'boardWrite.do'">신규등록</button>
-
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 </body>
 </html>
