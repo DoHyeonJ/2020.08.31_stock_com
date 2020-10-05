@@ -280,8 +280,8 @@
 			<args></args>
 			<char_semantics>false</char_semantics>
 			<description>게시글 번호</description>
-			<logical_name>comment_con_num</logical_name>
-			<physical_name>comment_con_num</physical_name>
+			<logical_name>comment_boardUid</logical_name>
+			<physical_name>comment_boardUid</physical_name>
 			<type>integer</type>
 		</word>
 		<word>

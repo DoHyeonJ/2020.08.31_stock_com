@@ -4,9 +4,8 @@ public class Comment_DTO {
 
 	// comment 테이블
 	private int comment_uid;
-	private int comment_con_num;
-	private String comment_name;
-	private String comment_pw;
+	private int comment_boardUid;
+	private String comment_id;
 	private String comment_content;
 	private String comment_date;
 	
@@ -17,13 +16,12 @@ public class Comment_DTO {
 	}
 	
 	// comment 생성자
-	public Comment_DTO (int comment_uid, int comment_con_num,String comment_name, String comment_pw, 
+	public Comment_DTO (int comment_uid, int comment_boardUid,String comment_id,
 			String comment_content, String comment_date) {
 		super();
 		this.comment_uid = comment_uid;
-		this.comment_con_num = comment_con_num;
-		this.comment_name = comment_name;
-		this.comment_pw = comment_pw;
+		this.comment_boardUid = comment_boardUid;
+		this.comment_id = comment_id;
 		this.comment_content = comment_content;
 		this.comment_date = comment_date;
 	}
@@ -36,28 +34,20 @@ public class Comment_DTO {
 		this.comment_uid = comment_uid;
 	}
 
-	public int getComment_con_num() {
-		return comment_con_num;
+	public int getComment_boardUid() {
+		return comment_boardUid;
 	}
 
-	public void setComment_con_num(int comment_con_num) {
-		this.comment_con_num = comment_con_num;
+	public void setComment_boardUid(int comment_boardUid) {
+		this.comment_boardUid = comment_boardUid;
 	}
 
-	public String getComment_name() {
-		return comment_name;
+	public String getComment_id() {
+		return comment_id;
 	}
 
-	public void setComment_name(String comment_name) {
-		this.comment_name = comment_name;
-	}
-
-	public String getComment_pw() {
-		return comment_pw;
-	}
-
-	public void setComment_pw(String comment_pw) {
-		this.comment_pw = comment_pw;
+	public void setComment_id(String comment_id) {
+		this.comment_id = comment_id;
 	}
 
 	public String getComment_content() {

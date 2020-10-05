@@ -32,7 +32,7 @@ CREATE TABLE st_comment
 	-- 댓글 고유번호
 	comment_uid int NOT NULL AUTO_INCREMENT COMMENT '댓글 고유번호',
 	-- 게시글 번호
-	comment_con_num int NOT NULL COMMENT '게시글 번호',
+	comment_boardUid int NOT NULL COMMENT '게시글 번호',
 	-- 댓글 작성자명
 	comment_name varchar(10) COMMENT '댓글 작성자명',
 	-- 댓글 비밀번호
