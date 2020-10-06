@@ -47,17 +47,19 @@ public class Comment_DAO {
 	//새글 작성 id, 내용 
 	//INSERT
 	public int insert(Comment_DTO dto) throws SQLException{
+		int boardUid = dto.getComment_boardUid();
 		String id = dto.getComment_id();
 		String content = dto.getComment_content();
-		return this.insert(id, content);
+		return this.insert(boardUid, id, content);
 	}
 	
-	public int insert(String id, String content) throws SQLException{
+	public int insert(int boardUid, String id, String content) throws SQLException{
 		int cnt =0;
 		try {
-			pstmt = conn.prepareStatement(D.SQL_COMMENT_INSERT);
-			pstmt.setString(1, id);
-			pstmt.setString(2, content);
+			pstmt = conn.prepareStatement(D.SQL_COMMENT_INSERT);			
+			pstmt.setInt(1, boardUid);
+			pstmt.setString(2, id);
+			pstmt.setString(3, content);
 			cnt = pstmt.executeUpdate();
 		} finally {
 			close();

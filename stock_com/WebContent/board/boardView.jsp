@@ -33,13 +33,13 @@
 	String comContent = "";
 	String comDate = "";
 	
-	//댓글값이 들어와있을경우 배열값 대입
+	//댓글값이 들어와있을경우 배열값 대입 배열의길이만큼 출력
 	if(comArr != null && comArr.length !=0){
-	comUid = comArr[0].getComment_uid();
-	comBoardUid = comArr[0].getComment_boardUid();
-	comId = comArr[0].getComment_id();
-	comContent = comArr[0].getComment_content();
-	comDate = comArr[0].getComment_date();		
+		comUid = comArr[0].getComment_uid();
+		comBoardUid = comArr[0].getComment_boardUid();
+		comId = comArr[0].getComment_id();
+		comContent = comArr[0].getComment_content();
+		comDate = comArr[0].getComment_date();		
 	}
 %>
 <%-- 위에서 필요한 트랜잭션이 마무리 되면 페이지에 보여주기 --%>
@@ -59,6 +59,21 @@ function chkDelete(id){
 	}
 	
 }
+
+//form 검증 [게시글 제목을 공백으로 하였는지 Check]
+function chkSubmit(){
+	frm = document.forms["frm"];
+	
+	var content = frm["content"].value.trim();
+	
+	if(content == ""){
+		alert("내용을 작성하여 주세요.")
+		frm["content"].focus();
+		return false;
+	}
+	
+	return true
+}
 </script>
 <body>
 <h2>읽기 <%= title %></h2>
@@ -76,17 +91,28 @@ function chkDelete(id){
 <br>
 <%-- 댓글이 존재할때만 댓글을 view단에 보여줌 --%>
 <%if (comDate != "") {%> 
-	댓글 uid : <%=comUid %><br>
+		<%for(int i=0; i < comArr.length; i++){
+			out.println("<td>" + comArr[i].getComment_id() + "</td>");
+			out.println("<td>" + comArr[i].getComment_content() + "</td>");
+			out.println("<td>" + comArr[i].getComment_date() + "</td>");
+			out.println("</br>");%>
+<%-- 	댓글 uid : <%=comUid %><br>
 	댓글 게시글 uid : <%=comBoardUid %><br>
 	댓글 id : <%=comId %><br>
 	댓글 내용 : <%=comContent %><br>
-	댓글 날짜 : <%=comDate %><br>
+	댓글 날짜 : <%=comDate %><br> --%>
 <%} %>
+<form name="frm" action="commentWriteOk.do" method="post" onsubmit="return chkSubmit()">
+<input type="hidden" name="boardUid" value="<%=uid %>">
+<input type="hidden" name="id" value="<%=id %>">
+<textarea name="content"></textarea>
+<input type="submit" value="등록"/>
+</form>
 <%-- 세션값과 현재보고있는 글의 id값이 일치할때 수정하기, 삭제하기 권한부여 --%>
 <%if(session.getAttribute("id").equals(id)){%>
 <button onclick="location.href = 'boardUpdate.do?uid=<%= uid%>'">수정하기</button>
 <button onclick="chkDelete(<%= uid%>)">삭제하기</button>
-<%} %>
+<% } }%>
 <button onclick="location.href = 'boardList.do'">목록보기</button>
 <button onclick="location.href = 'boardWrite.do'">신규등록</button>
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>

@@ -24,9 +24,9 @@ public class D {
 	//댓글 관련 쿼리문
 	public static final String SQL_COMMENT_INSERT =
 			"INSERT INTO st_comment"
-			+"(comment_name, comment_content)"
+			+"(comment_boardUid, comment_id, comment_content)"
 			+"VALUES"
-			+"(?, ?)";
+			+"(?, ?, ?)";
 	
 	//게시글 선택
 	public static final String SQL_BOARD_SELECT_BY_UID =

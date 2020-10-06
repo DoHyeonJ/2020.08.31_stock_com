@@ -17,7 +17,7 @@
 	//로그아웃 버튼을 눌렀을때 실행될 함수
 	function logOut() {
 	var result = confirm("로그아웃 하시겠습니까?");
-	if(true){
+	if(result){
 		alert("로그아웃 되셨습니다.");
 		location.href='memberLogout.do';
 	}

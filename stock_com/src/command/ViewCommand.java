@@ -26,7 +26,7 @@ public class ViewCommand implements Command {
 			//댓글 읽기
 			comArr = comDao.readByUid(uid);
 			request.setAttribute("comList", comArr);
-		} catch (Exception e) {  
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
