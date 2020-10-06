@@ -24,13 +24,17 @@ public class D {
 	//댓글 관련 쿼리문
 	public static final String SQL_COMMENT_INSERT =
 			"INSERT INTO st_comment"
-			+"(comment_uid, comment_boardUid, comment_name, comment_pw, comment_content, comment_date)"
+			+"(comment_name, comment_content)"
 			+"VALUES"
-			+"(?, ?, ?, ?, ?, ?)";
+			+"(?, ?)";
 	
 	//게시글 선택
 	public static final String SQL_BOARD_SELECT_BY_UID =
 			"SELECT * FROM st_board WHERE board_uid = ?";
+	
+	//선택한 게시글에 있는 댓글 선택
+	public static final String SQL_COMMENT_SELECT_BY_BOARDUID =
+			"SELECT * FROM st_comment WHERE comment_boardUid = ?";
 	
 	//게시글 조회수
 	public static final String SQL_BOARD_VIEWCNT =

@@ -4,6 +4,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 	//Controller 로부터 결과 데이터를 받아옴
+	Comment_DTO [] comArr = (Comment_DTO []) request.getAttribute("comList");
 	Board_DTO [] arr = (Board_DTO []) request.getAttribute("list");
 %>    
 
@@ -17,12 +18,21 @@
 	}
 %>
 <%
+	//게시글 변수
 	int uid = arr[0].getBoard_uid();
 	String id = arr[0].getBoard_id();
 	String title = arr[0].getBoard_title();
 	String content = arr[0].getBoard_content();
 	String date = arr[0].getBoard_date();
 	int viewCnt = arr[0].getBoard_viewcnt();
+	
+	//댓글 변수
+	int comUid = comArr[0].getComment_uid();
+	int comBoardUid = comArr[0].getComment_boardUid();
+	String comId = comArr[0].getComment_id();
+	String comContent = comArr[0].getComment_content();
+	String comDate = comArr[0].getComment_date();
+
 %>
 <%-- 위에서 필요한 트랜잭션이 마무리 되면 페이지에 보여주기 --%>
 <!DOCTYPE html>
@@ -56,6 +66,11 @@ function chkDelete(id){
 </div>
 <hr>
 <br>
+댓글 uid : <%=comUid %><br>
+댓글 게시글 uid : <%=comBoardUid %><br>
+댓글 id : <%=comId %><br>
+댓글 내용 : <%=comContent %><br>
+댓글 날짜 : <%=comDate %><br>
 <%-- 세션값과 현재보고있는 글의 id값이 일치할때 수정하기, 삭제하기 권한부여 --%>
 <%if(session.getAttribute("id").equals(id)){%>
 <button onclick="location.href = 'boardUpdate.do?uid=<%= uid%>'">수정하기</button>

@@ -15,14 +15,14 @@ import DTO.Board_DTO;
 import DTO.Comment_DTO;
 import common.D;
 
-public class comment_DAO {
+public class Comment_DAO {
 	Connection conn;
 	PreparedStatement pstmt;
 	Statement stmt;
 	ResultSet rs;
 	
 	// DAO 객체가 생성될때 Connection 도 생성됨.
-	public comment_DAO() {
+	public Comment_DAO() {
 		try {
 			Class.forName(D.DRIVER);
 			conn = DriverManager.getConnection(D.URL, D.USERID, D.USERPW);
@@ -66,6 +66,59 @@ public class comment_DAO {
 		return cnt;
 	}
 	
+	//Resultset DTO 배열로 변환 리턴
+	public Comment_DTO [] createArray(ResultSet rs) throws SQLException{
+		ArrayList<Comment_DTO> list = new ArrayList<Comment_DTO>();
+		
+		while(rs.next()) {
+			int comment_uid = rs.getInt("comment_uid");
+			int comment_boardUid = rs.getInt("comment_boardUid");
+			String comment_id = rs.getString("comment_id");
+			String comment_content = rs.getString("comment_content");
+			Date d = rs.getDate("comment_date");
+			Time t = rs.getTime("comment_date");
+			String comment_date = new SimpleDateFormat("yyyy-MM-dd").format(d) + " " 
+			+ new SimpleDateFormat("hh:mm:ss").format(t); 
+			Comment_DTO dto = new Comment_DTO(comment_uid, comment_boardUid, comment_id, comment_content, comment_date);
+			list.add(dto);
+		}
+		int size = list.size();
+		Comment_DTO [] arr = new Comment_DTO[size];
+		list.toArray(arr);
+		return arr;
+	}
+	
+	//특정 댓글 불러오기 
+	public Comment_DTO [] readByUid (int uid) throws SQLException{
+		Comment_DTO arr[] = null;
+		
+		try {
+			conn.setAutoCommit(false);
+			
+			pstmt = conn.prepareStatement(D.SQL_COMMENT_SELECT_BY_BOARDUID);
+			pstmt.setInt(1, uid);
+			rs = pstmt.executeQuery();
+			
+			arr = createArray(rs);
+		}finally{
+			close();
+		}
+		return arr;
+	}
+	
 } //end class
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
