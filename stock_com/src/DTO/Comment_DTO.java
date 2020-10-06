@@ -2,7 +2,7 @@ package DTO;
 
 public class Comment_DTO {
 
-	// comment 테이블
+	// comment 테이블 깃테스트
 	private int comment_uid;
 	private int comment_boardUid;
 	private String comment_id;
