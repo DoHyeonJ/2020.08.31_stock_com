@@ -50,12 +50,12 @@
 <title>읽기 <%= title %></title>
 </head>
 <script>
-function chkDelete(id){
+function chkDelete(uid){
 	// 삭제 여부 확인
 	var r = confirm("삭제하시겠습니까?");
 	
 	if(r){
-		location.href = 'boardDeleteOk.do?uid=' + id;
+		location.href = 'boardDeleteOk.do?uid=' + uid;
 	}
 	
 }
@@ -83,6 +83,7 @@ function chkSubmit(){
 등록일 : <%= date %><br>
 조회수 : <%= viewCnt %><br>
 내용 : <br>
+<% out.println(session.getAttribute("id")); %>
 <hr>
 <div>
 <%= content %>
@@ -96,12 +97,8 @@ function chkSubmit(){
 			out.println("<td>" + comArr[i].getComment_content() + "</td>");
 			out.println("<td>" + comArr[i].getComment_date() + "</td>");
 			out.println("</br>");%>
-<%-- 	댓글 uid : <%=comUid %><br>
-	댓글 게시글 uid : <%=comBoardUid %><br>
-	댓글 id : <%=comId %><br>
-	댓글 내용 : <%=comContent %><br>
-	댓글 날짜 : <%=comDate %><br> --%>
-<%} %>
+<%} 
+}%>
 <form name="frm" action="commentWriteOk.do" method="post" onsubmit="return chkSubmit()">
 <input type="hidden" name="boardUid" value="<%=uid %>">
 <input type="hidden" name="id" value="<%=id %>">
@@ -110,9 +107,9 @@ function chkSubmit(){
 </form>
 <%-- 세션값과 현재보고있는 글의 id값이 일치할때 수정하기, 삭제하기 권한부여 --%>
 <%if(session.getAttribute("id").equals(id)){%>
-<button onclick="location.href = 'boardUpdate.do?uid=<%= uid%>'">수정하기</button>
-<button onclick="chkDelete(<%= uid%>)">삭제하기</button>
-<% } }%>
+<button onclick="location.href = 'boardUpdate.do?uid=<%=uid%>'">수정하기</button>
+<button onclick="chkDelete(<%=uid%>)">삭제하기</button>
+<%}%>
 <button onclick="location.href = 'boardList.do'">목록보기</button>
 <button onclick="location.href = 'boardWrite.do'">신규등록</button>
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>

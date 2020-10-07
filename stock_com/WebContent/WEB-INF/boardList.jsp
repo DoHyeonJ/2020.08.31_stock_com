@@ -50,11 +50,12 @@
 		<%-- id세션값이 넘어온 경우 로그인,회원가입 버튼 없애주기 (로그인됬을때 보여줄 창들) --%>
 <%	if(session.getAttribute("id")==null){%>
 
-		<button onclick="location.href='memberLogin.do'">로그인</button>
-		<button onclick="location.href='memberSignUp.do'">회원가입</button>
+		<button onClick="location.href='memberLogin.do'">로그인</button>
+		<button onClick="location.href='memberSignUp.do'">회원가입</button>
 <%}else{ %>
-		<button onclick="location.href='boardWrite.do'">신규등록</button>
+		<button onClick="location.href='boardWrite.do'">신규등록</button>
 		<input type="button" onClick="logOut()" value="로그아웃">
+		<button onClick="location.href='index.do'">메인으로</button>
 <%} %>
 </body>
 </html>

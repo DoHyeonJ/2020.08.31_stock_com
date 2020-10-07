@@ -41,7 +41,6 @@ function chkSubmit() {
 <form name="frm" action="boardUpdateOk.do" 
 method="post" onsubmit="return chkSubmit()">
 <input type="hidden" name="uid" value="<%= uid%>"/>
-작성자 : <br> <%-- 작성자 이름은 변경 불가 --%>
 제목 : 
 <input type="text" name="title" value="<%=title%>"><br>
 내용 :
