@@ -167,6 +167,7 @@ public class Board_DAO {
 		}
 		return cnt;
 	}
+	
 	//특정 uid 의 글을 수정하기 --> 제목,내용
 	//UPDATE
 	public int update(int uid, String title, String content) throws SQLException {

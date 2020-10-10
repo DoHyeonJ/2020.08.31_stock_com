@@ -50,16 +50,28 @@
 <title>읽기 <%= title %></title>
 </head>
 <script>
+//최초 1회만 새로고침(댓글삭제시에 새로고침필요)
+if (self.name != 'reload') {
+    self.name = 'reload';
+    self.location.reload(true);
+} else self.name = ''; 
+
+// 삭제 여부 확인
 function chkDelete(uid){
-	// 삭제 여부 확인
 	var r = confirm("삭제하시겠습니까?");
-	
 	if(r){
 		location.href = 'boardDeleteOk.do?uid=' + uid;
 	}
 	
 }
-
+// 댓글삭제 여부 확인
+function comChkDelete(uid){
+	var r = confirm("삭제하시겠습니까?");
+	if(r){
+		location.href = 'commentDeleteOk.do?uid=' + uid;
+	}
+	
+}
 //form 검증 [게시글 제목을 공백으로 하였는지 Check]
 function chkSubmit(){
 	frm = document.forms["frm"];
@@ -96,6 +108,7 @@ function chkSubmit(){
 			out.println("<td>" + comArr[i].getComment_id() + "</td>");
 			out.println("<td>" + comArr[i].getComment_content() + "</td>");
 			out.println("<td>" + comArr[i].getComment_date() + "</td>");
+			out.println("<td>" + "<button onClick = comChkDelete("+comArr[i].getComment_uid()+")>삭제</button>");
 			out.println("</br>");%>
 <%} 
 }%>
@@ -105,13 +118,14 @@ function chkSubmit(){
 <textarea name="content"></textarea>
 <input type="submit" value="등록"/>
 </form>
+<a></a>
 <%-- 세션값과 현재보고있는 글의 id값이 일치할때 수정하기, 삭제하기 권한부여 --%>
 <%if(session.getAttribute("id").equals(id)){%>
-<button onclick="location.href = 'boardUpdate.do?uid=<%=uid%>'">수정하기</button>
-<button onclick="chkDelete(<%=uid%>)">삭제하기</button>
+<button onClick="location.href = 'boardUpdate.do?uid=<%=uid%>'">수정하기</button>
+<button onClick="chkDelete(<%=uid%>)">삭제하기</button>
 <%}%>
-<button onclick="location.href = 'boardList.do'">목록보기</button>
-<button onclick="location.href = 'boardWrite.do'">신규등록</button>
+<button onClick="location.href = 'boardList.do'">목록보기</button>
+<button onClick="location.href = 'boardWrite.do'">신규등록</button>
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 </body>
 </html>

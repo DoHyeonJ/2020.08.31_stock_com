@@ -47,6 +47,10 @@ public class D {
 	//게시글 삭제
 	public static final String SQL_BOARD_DELETE_BY_UID =
 			"DELETE FROM st_board WHERE board_uid = ?";
+	
+	//게시글 삭제
+	public static final String SQL_COMMENT_DELETE_BY_UID =
+			"DELETE FROM st_comment WHERE comment_uid = ?";
 
 	//게시글 수정
 	public static final String SQL_BOARD_UPDATE =

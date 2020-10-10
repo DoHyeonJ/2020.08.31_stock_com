@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import command.Command;
+import command.CommentDeleteCommand;
 import command.CommentWriteCommand;
 import command.DeleteCommand;
 import command.ListCommand;
@@ -105,6 +106,12 @@ public class Controller extends HttpServlet {
 			command = new DeleteCommand();
 			command.execute(request, response);
 			viewPage = "board/boardDeleteOk.jsp";
+			break;
+			
+		case "/commentDeleteOk.do":
+			command = new CommentDeleteCommand();
+			command.execute(request, response);
+			viewPage = "comment/commentDeleteOk.jsp";
 			break;
 			
 		case "/memberSignUp.do":

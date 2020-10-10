@@ -2,8 +2,8 @@ SET SESSION FOREIGN_KEY_CHECKS=0;
 
 /* Drop Tables */
 
-DROP TABLE IF EXISTS st_board;
 DROP TABLE IF EXISTS st_comment;
+DROP TABLE IF EXISTS st_board;
 DROP TABLE IF EXISTS st_member;
 
 
@@ -23,6 +23,8 @@ CREATE TABLE st_board
 	board_date datetime NOT NULL COMMENT '게시글 작성일',
 	-- 게시글 조회수
 	board_viewcnt int NOT NULL COMMENT '게시글 조회수',
+	-- 회원 고유번호
+	member_uid int NOT NULL COMMENT '회원 고유번호',
 	PRIMARY KEY (board_uid)
 );
 
@@ -41,6 +43,10 @@ CREATE TABLE st_comment
 	comment_content varchar(100) NOT NULL COMMENT '댓글 내용',
 	-- 댓글 작성일
 	comment_date date NOT NULL COMMENT '댓글 작성일',
+	-- 회원 고유번호
+	member_uid int NOT NULL COMMENT '회원 고유번호',
+	-- 게시판 고유번호
+	board_uid int NOT NULL COMMENT '게시판 고유번호',
 	PRIMARY KEY (comment_uid)
 );
 
@@ -67,6 +73,33 @@ CREATE TABLE st_member
 	UNIQUE (member_id),
 	UNIQUE (member_email)
 );
+
+
+
+/* Create Foreign Keys */
+
+ALTER TABLE st_comment
+	ADD FOREIGN KEY (board_uid)
+	REFERENCES st_board (board_uid)
+	ON UPDATE RESTRICT
+	ON DELETE RESTRICT
+;
+
+
+ALTER TABLE st_board
+	ADD FOREIGN KEY (member_uid)
+	REFERENCES st_member (member_uid)
+	ON UPDATE RESTRICT
+	ON DELETE RESTRICT
+;
+
+
+ALTER TABLE st_comment
+	ADD FOREIGN KEY (member_uid)
+	REFERENCES st_member (member_uid)
+	ON UPDATE RESTRICT
+	ON DELETE RESTRICT
+;
 
 
 
