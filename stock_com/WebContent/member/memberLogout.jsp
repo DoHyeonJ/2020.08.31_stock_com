@@ -3,8 +3,7 @@
 <!DOCTYPE html>
 <%-- 로그아웃 버튼 눌렀을 시 세션 제거 밑 index 페이지로 이동 --%>
 <%
-	session.removeAttribute("id");
-	session.removeAttribute("pw");
+	session.invalidate();
 %>
 <script>
 	location.href="index.do"

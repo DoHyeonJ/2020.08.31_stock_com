@@ -108,13 +108,16 @@ function chkSubmit(){
 			out.println("<td>" + comArr[i].getComment_id() + "</td>");
 			out.println("<td>" + comArr[i].getComment_content() + "</td>");
 			out.println("<td>" + comArr[i].getComment_date() + "</td>");
-			out.println("<td>" + "<button onClick = comChkDelete("+comArr[i].getComment_uid()+")>삭제</button>");
+			//댓글 id값이랑 현재 로그인된 id값이 일치할때 삭제기능 표시
+			if(comArr[i].getComment_id().equals(session.getAttribute("id"))){
+				out.println("<td>" + "<button onClick = comChkDelete("+comArr[i].getComment_uid()+")>삭제</button>");				
+			}
 			out.println("</br>");%>
 <%} 
 }%>
 <form name="frm" action="commentWriteOk.do" method="post" onsubmit="return chkSubmit()">
 <input type="hidden" name="boardUid" value="<%=uid %>">
-<input type="hidden" name="id" value="<%=id %>">
+<input type="hidden" name="id" value="<%=session.getAttribute("id")%>">
 <textarea name="content"></textarea>
 <input type="submit" value="등록"/>
 </form>
