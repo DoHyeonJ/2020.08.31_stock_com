@@ -76,5 +76,5 @@ public class Board_DTO {
 
 	public void setBoard_viewcnt(int board_viewcnt) {
 		this.board_viewcnt = board_viewcnt;
-	}
+	}	
 }

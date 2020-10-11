@@ -185,7 +185,40 @@ public class Board_DAO {
 		return cnt;
 	}
 	
+	// 페이징 
 	
+	   // 몇번째 페이지부터 몇개의 rows를 select
+	   public Board_DTO[] selectFromRow(int from, int rows) throws SQLException {
+		   Board_DTO[] arr = null;
+	      try {
+	         pstmt = conn.prepareStatement(D.SQL_SELECT_FROM_ROW);
+	         pstmt.setInt(1, from);
+	         pstmt.setInt(2, rows);
+	         rs = pstmt.executeQuery();
+	         arr = createArray(rs);
+	      } finally {
+	         close();
+	      }
+
+	      return arr;
+	   }
+	
+	   //총 몇개의 글이 있는지 계산
+	   public int countAll() throws SQLException{
+		   int cnt =0;
+		   
+		   try {
+			   pstmt = conn.prepareStatement(D.SQL_COUNT_ALL);
+			   rs = pstmt.executeQuery();
+			   rs.next(); // 첫번째 행의
+			   cnt = rs.getInt(1); // 첫번째 컬럼
+		} finally {
+			close();
+		}
+		   
+		   return cnt;
+	   }
+
 } //end class
 
 

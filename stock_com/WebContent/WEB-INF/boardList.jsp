@@ -12,6 +12,7 @@
 <head>
 <meta charset="UTF-8">
 <title>게시글 목록</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <script>
 	//로그아웃 버튼을 눌렀을때 실행될 함수
@@ -47,6 +48,13 @@
 %>
 		</table>
 		<br>
+
+			<jsp:include page="pagination.jsp">
+				<jsp:param value="${writePages }" name="writePages"/>
+				<jsp:param value="${totalPage }" name="totalPage"/>
+				<jsp:param value="${page }" name="curPage"/>
+			</jsp:include>
+		
 		<%-- id세션값이 넘어온 경우 로그인,회원가입 버튼 없애주기 (로그인됬을때 보여줄 창들) --%>
 <%	if(session.getAttribute("id")==null){%>
 
@@ -57,6 +65,7 @@
 		<input type="button" onClick="logOut()" value="로그아웃">
 		<button onClick="location.href='index.do'">메인으로</button>
 <%} %>
+
 </body>
 </html>
 

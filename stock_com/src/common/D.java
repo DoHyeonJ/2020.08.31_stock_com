@@ -62,6 +62,15 @@ public class D {
 	//로그인 확인
 	public static final String SQL_MEMBER_LOGIN = 
 			"SELECT * FROM st_member WHERE member_id = ? AND member_pw = ?";
+	
+	//페이징  첫번째 물음표 ~부터 , 두번째 물음표 수만큼 표시 
+	public static final String SQL_SELECT_FROM_ROW = 
+			"SELECT * FROM st_board WHERE board_uid = board_uid ORDER BY board_uid DESC LIMIT ?, ?";
+	
+	//페이징 전체 게시글 수 
+	public static final String SQL_COUNT_ALL = 
+			"SELECT COUNT(*) FROM st_board";
+	
 }
 
 

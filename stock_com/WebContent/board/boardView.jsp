@@ -54,7 +54,7 @@
 if (self.name != 'reload') {
     self.name = 'reload';
     self.location.reload(true);
-} else self.name = ''; 
+} else self.name = '';
 
 // 삭제 여부 확인
 function chkDelete(uid){
