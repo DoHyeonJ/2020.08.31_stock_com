@@ -14,7 +14,7 @@ function chkSubmit(){
 	//검증여부를 위한 변수
 	var id = frm["id"].value.trim();
 	var pw = frm["pw"].value.trim();
-	
+		
 	if(id == ""){
 		alert("id를 입력해주세요.")
 		frm["id"].focus();
