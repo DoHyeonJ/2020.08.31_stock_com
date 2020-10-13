@@ -21,6 +21,24 @@
 </head>
 <body>
 <br></br>
+    <div class="container ">
+        <div class="row ">
+            <div class="col-xs-12 ">
+                <nav class="navbar navbar-default ">
+                    <div class="container-fluid ">
+                        <div class="navbar-header ">
+                            <a class="navbar-brand " href="index.do ">ST_COMMUNITY
+                            </a>
+                        </div>
+                        <h4 class="navbar-text navbar-right ">Signed in as&nbsp
+                            <a href="memberLogin.do " class="text-primary">Login</a>&nbsp&nbsp&nbsp
+                        </h4>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+<br></br>
 <div class="container">
 <%
 	//메인페이지에서 로그인 안되어있으면 로그인 버튼 보여주기
