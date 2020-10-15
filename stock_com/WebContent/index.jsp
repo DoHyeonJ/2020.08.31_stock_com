@@ -31,12 +31,12 @@
                             </a>
                         </div>
                         <%if(session.getAttribute("id")==null){%>
-                        <h4 class="navbar-text navbar-right ">Signed in as&nbsp
-                            <a href="memberLogin.do " class="text-primary">Login</a>&nbsp&nbsp&nbsp
+                        <h4 class="navbar-text navbar-right ">Signed in as&nbsp;
+                            <a href="memberLogin.do " class="text-primary">Login</a>&nbsp;&nbsp;&nbsp;
                         </h4>
                         <%}else {%>
-                        <h4 class="navbar-text navbar-right ">Signed out as&nbsp
-                            <a href="memberLoginout.do " class="text-primary">Logout</a>&nbsp&nbsp&nbsp;
+                        <h4 class="navbar-text navbar-right ">Signed out as&nbsp;
+                            <a href="memberLogout.do " class="text-primary">Logout</a>&nbsp;&nbsp;&nbsp;
                         </h4>
                         <%}	%>
                     </div>
@@ -44,8 +44,9 @@
             </div>
         </div>
     </div>
+    <a href="boardList.do">게시판</a>
 <br></br>
-<div class="container">
+<%-- <div class="container">
 <%
 	//메인페이지에서 로그인 안되어있으면 로그인 버튼 보여주기
 	if(session.getAttribute("id")==null){
@@ -59,7 +60,7 @@
 		<input type="button" onClick="logOut()" value="로그아웃">
 		<%out.println("<button onclick=location.href='boardList.do'>게시글목록</a>");
 	}%>
-</div>
+</div> --%>
 </body>
 </html>
 

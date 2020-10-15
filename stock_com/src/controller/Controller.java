@@ -140,7 +140,6 @@ public class Controller extends HttpServlet {
 		case "/memberLogout.do":
 			viewPage = "member/memberLogout.jsp";
 			break;
-
 		}
 		// 2.View(*.jsp) 선택
 		

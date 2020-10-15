@@ -5,6 +5,15 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 	Board_DTO [] arr = (Board_DTO [] )request.getAttribute("list");
+String seId = null;
+//세션값 id 받아와서 seId 변수에 저장
+try{
+Object oJseId = session.getAttribute("id");
+seId = (String)oJseId;		
+}catch (Exception e){
+	e.printStackTrace();
+}
+
 %>
 
 <!DOCTYPE html>
@@ -91,7 +100,7 @@
         <!-- pagination -->
         <nav class="nav nav-pills">
         <%-- id세션값이 넘어온 경우 로그인,회원가입 버튼 없애주기 (로그인됬을때 보여줄 창들) --%>
-        <%if(session.getAttribute("id")==null){%>
+        <%if(seId.equals(null)){%>
             <input type="button" class="btn btn-default" onclick="location.href='memberLogin.do'" value="로그인">
             <input type="button" class="btn btn-default" onclick="location.href='memberSignUp.do'" value="회원가입">
             <%}else{ %>
@@ -101,9 +110,9 @@
             <%} %>
             <ul class="pagination navbar-right">
        		<jsp:include page="pagination.jsp">
-			<jsp:param value="${writePages }" name="writePages"/>
-			<jsp:param value="${totalPage }" name="totalPage"/>
-			<jsp:param value="${page }" name="curPage"/>
+			<jsp:param value="${writePages}" name="writePages"/>
+			<jsp:param value="${totalPage}" name="totalPage"/>
+			<jsp:param value="${page}" name="curPage"/>
 			</jsp:include>
             </ul>
           </nav>

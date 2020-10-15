@@ -15,6 +15,6 @@
 <%} else { %>
 	<script>
 		alert("등록성공, 리스트를 출력합니다.");
-		location.href = "boardView.do?uid=<%=boardUid%>";
+		history.back();
 	</script>
 <% } %>

@@ -9,7 +9,7 @@
 <% if(cnt == 0){ %>\
 <script>
 	alert("수정실패");
-	historty.back();
+	history.back();
 </script> 
 <% } else { %>
 <script>

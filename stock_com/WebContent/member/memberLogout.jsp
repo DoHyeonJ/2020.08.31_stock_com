@@ -6,5 +6,5 @@
 	session.invalidate();
 %>
 <script>
-	location.href="index.do"
+	location.href="index.do";
 </script>

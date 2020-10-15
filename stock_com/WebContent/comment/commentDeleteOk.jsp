@@ -13,10 +13,9 @@
 <% } else { %>
 <script>
 	alert("삭제성공")
-	history.back();
+	history.back();	
 </script>
 <% } %>
-
 
 
 
