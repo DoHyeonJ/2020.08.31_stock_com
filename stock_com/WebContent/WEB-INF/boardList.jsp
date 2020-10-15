@@ -5,15 +5,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 	Board_DTO [] arr = (Board_DTO [] )request.getAttribute("list");
-String seId = null;
-//세션값 id 받아와서 seId 변수에 저장
-try{
-Object oJseId = session.getAttribute("id");
-seId = (String)oJseId;		
-}catch (Exception e){
-	e.printStackTrace();
-}
 
+	String seId = (String)session.getAttribute("id");
+	
 %>
 
 <!DOCTYPE html>
@@ -100,10 +94,10 @@ seId = (String)oJseId;
         <!-- pagination -->
         <nav class="nav nav-pills">
         <%-- id세션값이 넘어온 경우 로그인,회원가입 버튼 없애주기 (로그인됬을때 보여줄 창들) --%>
-        <%if(seId.equals(null)){%>
+         <%if(seId==null){%>
             <input type="button" class="btn btn-default" onclick="location.href='memberLogin.do'" value="로그인">
             <input type="button" class="btn btn-default" onclick="location.href='memberSignUp.do'" value="회원가입">
-            <%}else{ %>
+             <%}else{ %>
             <input type="button" class="btn btn-default" onclick="location.href='index.do'" value="메인으로">
             <input type="button" class="btn btn-default" onclick="location.href='boardWrite.do'" value="새 글쓰기">
             <input type="button" class="btn btn-default" onclick="logOut()" value="로그아웃">

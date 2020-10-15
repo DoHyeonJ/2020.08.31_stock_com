@@ -52,7 +52,7 @@
 	        if (curPage != k)
 	            str += "<li><a href='" + url + k + add + "'>" + k + "</a></li>\n";
 	        else
-	            str += "<li><a href='#' class='active tooltip-top' title='현재페이지'>" + k + "</a></li>\n";
+	            str += "<li class='active' ><a href='#'>" + k + "<span class='sr-only'>(current)</span></a></li>\n";
 	    }
 	}
 	

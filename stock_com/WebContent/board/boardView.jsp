@@ -8,15 +8,8 @@
 	Board_DTO [] arr = (Board_DTO []) request.getAttribute("list");
 	Comment_DTO [] comArr = (Comment_DTO []) request.getAttribute("comList");
 	
-	String seId = null;
-	
-	//세션값 id 받아와서 seId 변수에 저장
-	try{
-	Object oJseId = session.getAttribute("id");
-	seId = (String)oJseId;		
-	}catch (Exception e){
-		e.printStackTrace();
-	}
+	String seId = (String)session.getAttribute("id");
+
 	
 %>    
 
