@@ -30,9 +30,15 @@
                             <a class="navbar-brand " href="index.do ">ST_COMMUNITY
                             </a>
                         </div>
+                        <%if(session.getAttribute("id")==null){%>
                         <h4 class="navbar-text navbar-right ">Signed in as&nbsp
                             <a href="memberLogin.do " class="text-primary">Login</a>&nbsp&nbsp&nbsp
                         </h4>
+                        <%}else {%>
+                        <h4 class="navbar-text navbar-right ">Signed out as&nbsp
+                            <a href="memberLoginout.do " class="text-primary">Logout</a>&nbsp&nbsp&nbsp;
+                        </h4>
+                        <%}	%>
                     </div>
                 </nav>
             </div>
@@ -49,7 +55,7 @@
 	else{
 		String id = (String)session.getAttribute("id");
 		out.println(id+"님 반갑습니다.<br>");	
-%>	
+%>
 		<input type="button" onClick="logOut()" value="로그아웃">
 		<%out.println("<button onclick=location.href='boardList.do'>게시글목록</a>");
 	}%>

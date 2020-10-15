@@ -4,6 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
+    <meta name="viewport " content="width=device-width, initial-scale=1.0 ">
+    <link rel="stylesheet " href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css ">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js "></script>
 <title>회원가입 페이지입니다.</title>
 </head>
 <script>
@@ -99,8 +102,84 @@ function chkSubmit(){
 }
 </script>
 <body>
-<h2>회원가입</h2>
-<form name ="frm" action="memberSignOk.do" method="post" onsubmit="return chkSubmit()">
+<br></br>
+    <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
+        <div class="container">
+            <div class="row wow fadeIn">
+                <div class="col-md-6 mb-4 white-text text-center text-md-left">
+                    <h1 class="display-4 font-weight-bold">Sign UP</h1>
+                    <hr class="hr-light">
+                    <p>
+                        <strong>For the more information</strong>
+                    </p>
+                    <p class="mb-4 d-none d-md-block">
+                        <strong>Quickly get information from new leads and customers by signing up .WIth their information, you can funnel them into new accounts in an instant.Follow us on FACEBOOK</strong>
+                    </p>
+                    <i class="fa fa-facebook ml-2"></i>
+                </div>
+                <div class="col-md-6 col-xl-5 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <form name="frm" method="post" action="memberSignOk.do">
+                                <p class="h4 text-center mb-4">Sign up</p>
+                                <br>
+                                <div class="md-form">
+                                    <i class="fa fa-user prefix grey-text"></i>
+                                    <input type="text" name="name" class="form-control" placeholder="이름을 입력해주세요">
+                                </div>
+                                <br>
+                                <div class="md-form">
+                                    <i class="fa fa-exclamation-triangle prefix grey-text"></i>
+                                    <input type="text" name="id" class="form-control" placeholder="ID를 입력해주세요">
+                                </div>
+                                <br>
+                                    <input type="button" value="ID중복확인 " class="btn btn-default" style="display:block" onClick="confirmId()">
+                                <br>
+                                <div class="md-form">
+                                    <i class="fa fa-envelope prefix grey-text"></i>
+                                    <input type="password" name="pw" class="form-control" placeholder="비밀번호를 입력해주세요 ">
+                                </div>
+                                <br>
+                                <div class="md-form">
+                                    <i class="fa fa-exclamation-triangle prefix grey-text"></i>
+                                    <input type="password" name="pwCheck" class="form-control" placeholder="비밀번호를 확인합니다 ">
+                                </div>
+                                <br>
+                                <div class="md-form">
+                                    <i class="fa fa-exclamation-triangle prefix grey-text"></i>
+                                    <input type="email" name="email" class="form-control" placeholder="이메일을 입력해주세요">
+                                </div>
+                                <br>
+                                <label for="materialFormRegisterPasswordEx">성별을 선택하여주세요</label>
+                                <br>
+                                <div class="custom-control custom-radi">
+                                    남성 <input type="radio" name="gender" class="custom-control-input" value="1" checked>
+                                    여성 <input type="radio" name="gender" class="custom-control-input" value="2" >
+                                 </div>
+                                <br>
+                                <div class="md-form">
+                                    <i class="fa fa-lock prefix grey-text"></i>
+                                    <input name="birth" class="form-control" placeholder="생년월일을 입력해주세요 ex) 19950803">
+                                </div>
+                                <br>
+                                <div class="md-form">
+                                    <i class="fa fa-lock prefix grey-text"></i>
+                                    <input name="phone" class="form-control" placeholder="휴대폰번호를 입력해주세요 [' - '를 제외하고 입력해주세요.]">
+                                </div>
+
+
+                                <br></br>
+                                <input type="submit" class="btn btn-default" value="회원가입 ">
+                                <input type="button" class="btn btn-default" onclick="location.href='memberLogin.do'" value="로그인 ">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- <h2>회원가입</h2> -->
+<!-- <form name ="frm" action="memberSignOk.do" method="post" onsubmit="return chkSubmit()">
 이름 :
 <input type="text" name="name"/><br>
 id :
@@ -121,7 +200,7 @@ email :
 <input type="text" name="phone"/> [ "-"를 제외하고 입력해주세요. ]<br>
 <input type="button" onclick="location.href='memberLogin.do'" value="로그인">
 <input type="submit" value="회원가입"/>
-</form>
+</form> -->
 </body>
 </html>
 
