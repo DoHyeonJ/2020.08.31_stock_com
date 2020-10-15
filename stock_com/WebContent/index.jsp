@@ -43,8 +43,8 @@
                 </nav>
             </div>
         </div>
-    </div>
     <a href="boardList.do">게시판</a>
+    </div>
 <br></br>
 <%-- <div class="container">
 <%
