@@ -1,5 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet " href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css ">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js "></script>
+    <title>Document</title>
+</head>
+<body>
+    
 <%
 	// 한페이징에 표시될 페이지수 --> writePages
 	// 총 페이지수 --> totalPage
@@ -28,12 +39,12 @@
 	
 	//■ << 표시 여부
 	if(curPage > 1){
-		str += "<li><a href='" + url + "1" +  add + "' class='tooltip-top' title='처음'><i class='fas fa-angle-double-left'></i></a></li>\n";
+		str += "<li><a href='" + url + "1" +  add + "' aria-label='Previous'><span aria-hidden='true'>&laquo;</span></a></li>\n";
 	}
 	
-  	//■  < 표시 여부
+/*   	//■  < 표시 여부
     if (start_page > 1) 
-    	str += "<li><a href='" + url + (start_page - 1) + add + "' class='tooltip-top' title='이전'><i class='fas fa-angle-left'></i></a></li>\n";
+    	str += "<li><a href='" + url + (start_page - 1) + add + "' class='tooltip-top' title='이전'><i class='fas fa-angle-left'></i></a></li>\n"; */
     
     //■  페이징 안의 '숫자' 표시	
 	if (totalPage > 1) {
@@ -45,14 +56,14 @@
 	    }
 	}
 	
-	//■ > 표시
+/* 	//■ > 표시
     if (totalPage > end_page){
-    	str += "<li><a href='" + url + (end_page + 1) + add + "' class='tooltip-top' title='다음'><i class='fas fa-angle-right'></i></a></li>\n";
-    }
+    	str += "<li><a href='" + url + (end_page + 1) + add + "' aria-label='Next'><span aria-hidden='true'>&raquo;</span></a></li>\n";
+    } */
 
 	//■ >> 표시
     if (curPage < totalPage) {
-        str += "<li><a href='" + url + totalPage + add + "' class='tooltip-top' title='맨끝'><i class='fas fa-angle-double-right'></i></a></li>\n";
+        str += "<li><a href='" + url + totalPage + add + "' aria-label='Next'><span aria-hidden='true'>&raquo;</span></a></li>\n";
     }
 
 %>
@@ -62,3 +73,5 @@
 	<%= str %>
 	</ul>
 </div>
+</body>
+</html>

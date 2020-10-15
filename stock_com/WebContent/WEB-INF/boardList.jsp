@@ -11,6 +11,9 @@
 <html lang="UTF-8">
 <head>
 <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet " href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css ">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js "></script>
 <title>게시글 목록</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
@@ -25,46 +28,86 @@
 }
 </script>
 <body>
-		<hr>
-		<h2>리스트</h2>
-		<table>
-			<tr>
-				<th>번호</th>
-				<th>제목</th>
-				<th>작성자</th>
-				<th>조회수</th>
-				<th>등록일</th>
-			<tr>
+    <div class="container">
+    <br></br>
+        <div class="panel panel-default">
+            <!-- Default panel contents -->
+            <div class="panel-heading">
+                <h4>자유 게시판</h4>
+            </div>
+            <div class="panel-body">
+                <!-- <p>양식 제한없이 자유롭게 글을 작성해주시면 됩니다.</p> -->
+                <div class="navbar-right" >
+                    <div class="row">
+                        <div class="col-lg-3">
+                          <div class="input-group">
+                            <input type="text" class="form-control" placeholder="검색할 내용을 작성해주세요.">
+                            <span class="input-group-btn">
+                              <button class="btn btn-default" type="button">검색</button>
+                            </span>
+                          </div><!-- /input-group -->
+                        </div><!-- /.col-lg-6 -->
+                      </div><!-- /.row -->
+                </div>
+            </div>
+            <!-- Table -->
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col"  style="width: 5%" >
+                            Bno.
+                        </th>
+                        <th scope="col"  style="width: 15%">
+                            Writer
+                        </th>
+                        <th scope="col"  style="width: 60%">
+                            Title
+                        </th>
+                        <th scope="col"  style="width: 15%">
+                            RegDate
+                        </th>
+                        <th scope="col"  style="width: 5%">
+                            ViewCnt
+                        </th>
+                    </tr>
+
+
+                </thead>
+                <tbody>
 <%
-		for(int i=0; i < arr.length; i++){
-			out.println("<tr>");
-			out.println("<td>" + arr[i].getBoard_uid() + "</td>");
-			out.println("<td><a href='boardView.do?uid=" + arr[i].getBoard_uid() + "'>" + arr[i].getBoard_title() + "</a></td>");
+                for(int i=0; i < arr.length; i++){
+            out.println("<tr>");
+            out.println("<th scope='row'>" + arr[i].getBoard_uid() + "</td>");
 			out.println("<td>" + arr[i].getBoard_id() + "</td>");
-			out.println("<td>" + arr[i].getBoard_viewcnt() + "</td>");
+			out.println("<td><a href='boardView.do?uid=" + arr[i].getBoard_uid() + "'>" + arr[i].getBoard_title() + "</a></td>");
 			out.println("<td>" + arr[i].getBoard_date() + "</td>");
+			out.println("<td>" + arr[i].getBoard_viewcnt() + "</td>");
 			out.println("</tr>");
-		}
+			}
 %>
-		</table>
-		<br>
-
-			<jsp:include page="pagination.jsp">
-				<jsp:param value="${writePages }" name="writePages"/>
-				<jsp:param value="${totalPage }" name="totalPage"/>
-				<jsp:param value="${page }" name="curPage"/>
+                </tbody>
+            </table>
+        </div>
+        <!-- pagination -->
+        <nav class="nav nav-pills">
+        <%-- id세션값이 넘어온 경우 로그인,회원가입 버튼 없애주기 (로그인됬을때 보여줄 창들) --%>
+        <%if(session.getAttribute("id")==null){%>
+            <input type="button" class="btn btn-default" onclick="location.href='memberLogin.do'" value="로그인">
+            <input type="button" class="btn btn-default" onclick="location.href='memberSignUp.do'" value="회원가입">
+            <%}else{ %>
+            <input type="button" class="btn btn-default" onclick="location.href='index.do'" value="메인으로">
+            <input type="button" class="btn btn-default" onclick="location.href='boardWrite.do'" value="새 글쓰기">
+            <input type="button" class="btn btn-default" onclick="logOut()" value="로그아웃">
+            <%} %>
+            <ul class="pagination navbar-right">
+       		<jsp:include page="pagination.jsp">
+			<jsp:param value="${writePages }" name="writePages"/>
+			<jsp:param value="${totalPage }" name="totalPage"/>
+			<jsp:param value="${page }" name="curPage"/>
 			</jsp:include>
-		
-		<%-- id세션값이 넘어온 경우 로그인,회원가입 버튼 없애주기 (로그인됬을때 보여줄 창들) --%>
-<%	if(session.getAttribute("id")==null){%>
-
-		<button onClick="location.href='memberLogin.do'">로그인</button>
-		<button onClick="location.href='memberSignUp.do'">회원가입</button>
-<%}else{ %>
-		<button onClick="location.href='boardWrite.do'">신규등록</button>
-		<input type="button" onClick="logOut()" value="로그아웃">
-		<button onClick="location.href='index.do'">메인으로</button>
-<%} %>
+            </ul>
+          </nav>
+    </div> <!-- container end -->
 
 </body>
 </html>
