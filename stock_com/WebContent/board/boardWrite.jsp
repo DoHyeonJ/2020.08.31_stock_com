@@ -8,6 +8,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet " href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css ">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js "></script>
 <title>글쓰기</title>
 </head>
 <script>
@@ -27,23 +30,52 @@ function chkSubmit(){
 }
 </script>
 <body>
-<h2>글작성</h2>
-<%
-	out.println(id);
-%>
-<%-- 글 내용이 많을 수 있기 때문에 POST 방식을 사용 --%>
-<form name="frm" action="boardWriteOk.do" method="post" onsubmit="return chkSubmit()">
-<%-- 작성자명을 보내주기 위한 hidden --%>
-<input type="hidden" name="id" value="<%=id%>">
-제목 : 
-<input type="text" name="title"/><br>
-내용 :<br>
-<textarea name="content"></textarea>
-<br><br>
-<input type="submit" value="등록"/>
-</form>
-<br>
-<button type="button" onclick="location.href='boardList.do'">목록으로</button>
+  <br></br>
+    <div class="container">
+        <div class="nav nav-tabs">
+                <h2>게시글 쓰기</h2>
+        </div>
+        <br>
+        <div class="panel panel-default">
+            <!-- Default panel contents -->
+            <div class="panel-heading">
+                <h4>자유 게시판</h4>
+            </div>
+            <!-- Table -->
+            <table class="table table-bordered">
+                <tbody>
+				<form name= "frm" action="boardWriteOk.do" method="post" onsubmit="return chkSubmit()">   
+				<input type="hidden" name="id" value="<%=id%>">          
+                    <tr>
+                        <th scope="row" style="width: 10%">제목</th>
+                        <div class="col-sm-5">
+                            <td>
+                                <input type="text" class="form-control" name="title" >
+                            </td>
+                        </div>
+                    </tr>
+                    <tr>
+                        <th scope="row">내용</th>
+                        <td>
+                            <textarea rows="25" class="form-control col-sm-5" name="content" ></textarea>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- pagination -->
+        </div>
+        <nav class="nav nav-pills">
+            <ul class="pagination navbar-right">
+              <li>
+                <input type="button" class="btn btn-default" onclick="location.href='boardList.do'" value="글목록">
+              </li>
+              <li>
+                <input type="submit" class="btn btn-default" value="등록">
+              </li>
+            </ul>
+          </nav>
+          </form>   
+     </div> <!-- container end -->
 </body>
 
 </html>
