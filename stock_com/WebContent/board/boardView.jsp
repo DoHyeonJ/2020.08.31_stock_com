@@ -156,6 +156,10 @@ function chkSubmit(){
             </div>
             <br>
                      <form name="frm" action="commentWriteOk.do" method="post" onsubmit="return chkSubmit()">
+                     <%if(seId==null){%>
+                    <p>로그인하시면 댓글을 작성할 수 있습니다.</p>
+					<br>
+            <%}else{%>
             <div class="panel panel-default">
                 <div class="panel-body">
                     <div class="input-group">
@@ -168,6 +172,7 @@ function chkSubmit(){
                     </div>
                 </div>
             </div>
+            <%} %>
                      </form>     
 <%if (comDate != "") {
 	for(int i=0; i < comArr.length; i++){%>

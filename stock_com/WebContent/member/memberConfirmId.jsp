@@ -10,10 +10,12 @@
 	<center>
 	<br /><br />
 	<h4>이미 사용중인 ID 입니다.</h4>
+	<a href="javascript:window.close()">닫기</a>
 	</center>
 <% } else { %>
 	<center>
 	<br /><br />
 	<h4>입력하신 <%=id %>는 사용하실 수 있는 ID입니다.</h4>
+	<a href="javascript:window.close()">닫기</a>
 	</center>
 <% } %>

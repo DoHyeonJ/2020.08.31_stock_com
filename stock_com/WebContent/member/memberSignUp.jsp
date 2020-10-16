@@ -169,8 +169,9 @@ function chkSubmit(){
 
 
                                 <br></br>
+                                <input type="button" class="btn btn-default" onclick="history.back()" value="이전으로">
                                 <input type="submit" class="btn btn-default" value="회원가입 ">
-                                <input type="button" class="btn btn-default" onclick="location.href='memberLogin.do'" value="로그인 ">
+                                <input type="button" class="btn btn-default" onclick="location.href='memberLogin.do'" value="로그인">
                             </form>
                         </div>
                     </div>

@@ -21,29 +21,55 @@
 </head>
 <body>
 <br></br>
-    <div class="container ">
-        <div class="row ">
-            <div class="col-xs-12 ">
-                <nav class="navbar navbar-default ">
-                    <div class="container-fluid ">
-                        <div class="navbar-header ">
-                            <a class="navbar-brand " href="index.do ">ST_COMMUNITY
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <nav class="navbar navbar-default">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <a class="navbar-brand" href="index.do">ST_COMMUNITY
                             </a>
                         </div>
+                        <h4 class="navbar-text navbar-right">
+                            <a href="boardList.do" class="text-primary">NoticeBoard</a>&nbsp;&nbsp;&nbsp;
+                        </h4>
                         <%if(session.getAttribute("id")==null){%>
-                        <h4 class="navbar-text navbar-right ">Signed in as&nbsp;
-                            <a href="memberLogin.do " class="text-primary">Login</a>&nbsp;&nbsp;&nbsp;
+                        <h4 class="navbar-text navbar-right">Signed in as&nbsp;
+                            <a href="memberSignUp.do" class="text-primary">SignUp </a>&nbsp;&nbsp;|&nbsp;
                         </h4>
                         <%}else {%>
-                        <h4 class="navbar-text navbar-right ">Signed out as&nbsp;
-                            <a href="memberLogout.do " class="text-primary">Logout</a>&nbsp;&nbsp;&nbsp;
+                        <h4 class="navbar-text navbar-right">Signed out as&nbsp;
+                            <a href="memberLogout.do" class="text-primary">Logout </a>&nbsp;&nbsp;|&nbsp;
                         </h4>
                         <%}	%>
                     </div>
                 </nav>
+                <br></br>
+                <div style="text-align: center;">
+                <br><br><br><br><br><br><br><br><br>
+                <%if(session.getAttribute("id")==null){%>
+                <a href="memberLogin.do">
+				<img alt="login" src="icon/login.png" style="width: 15%">      
+				</a>
+				<h2>LOGIN</h2>
+				<%}else {%>
+				<a href="memberLogout.do">
+				<img alt="login" src="icon/login.png" style="width: 15%">      
+				</a>
+				<h2>LOGOUT</h2>
+				<%}	%>
+                </div>
+                <footer class="container-fluid navbar-fixed-bottom" style="border-top: 1px solid #e5e5e5">
+                <br></br>
+                <div class="text-center">
+       <a href="https://github.com/DoHyeonJ/2020.08.31_stock_com">
+       		<img alt="img-github" src="icon/github.png" width="50">
+       </a>
+       		<h3>Copyright 2020.&nbsp;<small>DoHyeon All rights reserved.</small></h3>
+    			</div>
+				</footer>
             </div>
         </div>
-    <a href="boardList.do">게시판</a>
     </div>
 </body>
 </html>

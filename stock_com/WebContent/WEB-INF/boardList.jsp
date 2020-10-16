@@ -39,15 +39,11 @@
                 <h4>자유 게시판</h4>
             </div>
             <div class="panel-body">
-                <!-- <p>양식 제한없이 자유롭게 글을 작성해주시면 됩니다.</p> -->
+                <p>양식 제한없이 자유롭게 글을 작성해주시면 됩니다.</p>
                 <div class="navbar-right" >
                     <div class="row">
-                        <div class="col-lg-3">
+                        <div class="col-lg-5">
                           <div class="input-group">
-                            <input type="text" class="form-control" placeholder="검색할 내용을 작성해주세요.">
-                            <span class="input-group-btn">
-                              <button class="btn btn-default" type="button">검색</button>
-                            </span>
                           </div><!-- /input-group -->
                         </div><!-- /.col-lg-6 -->
                       </div><!-- /.row -->
@@ -95,6 +91,7 @@
         <nav class="nav nav-pills">
         <%-- id세션값이 넘어온 경우 로그인,회원가입 버튼 없애주기 (로그인됬을때 보여줄 창들) --%>
          <%if(seId==null){%>
+            <input type="button" class="btn btn-default" onclick="location.href='index.do'" value="메인으로">
             <input type="button" class="btn btn-default" onclick="location.href='memberLogin.do'" value="로그인">
             <input type="button" class="btn btn-default" onclick="location.href='memberSignUp.do'" value="회원가입">
              <%}else{ %>
