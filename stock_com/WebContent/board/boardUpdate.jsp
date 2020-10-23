@@ -42,7 +42,7 @@ function chkSubmit() {
 <br></br>
     <div class="container">
         <div class="nav nav-tabs">
-                <h2>게시글 쓰기</h2>
+                <h2>게시글 수정</h2>
         </div>
         <br>
         <div class="panel panel-default">

@@ -49,7 +49,7 @@ function chkSubmit(){
 		return false
 	}
 	if(id == ""){
-		alert("id를 입력해주세요.")
+		alert("ID를 입력해주세요.")
 		frm["id"].focus();
 		return false
 	}
@@ -78,14 +78,14 @@ function chkSubmit(){
 		frm["email"].focus();
 		return false
 	}
-	if(birth == ""){
-		alert("생일을 입력해주세요.")
-		frm["birth"].focus();
-		return false
-	}
 	if(phone == ""){
 		alert("휴대폰 번호를 입력해주세요.")
 		frm["phone"].focus();
+		return false
+	}
+	if(birth == ""){
+		alert("생일을 입력해주세요.")
+		frm["birth"].focus();
 		return false
 	}
 	
@@ -112,17 +112,16 @@ function chkSubmit(){
                     <p>
                         <strong>For the more information</strong>
                     </p>
-                    <p class="mb-4 d-none d-md-block">
-                        <strong>Quickly get information from new leads and customers by signing up .WIth their information, you can funnel them into new accounts in an instant.Follow us on FACEBOOK</strong>
+                     <p class="mb-4 d-none d-md-block">
+                        <strong>Quickly get information from new leads and customers by signing up .WIth their information, you can funnel them into new accounts in an instant.</strong>
                     </p>
                     <i class="fa fa-facebook ml-2"></i>
                 </div>
                 <div class="col-md-6 col-xl-5 mb-4">
                     <div class="card">
                         <div class="card-body">
-                            <form name="frm" method="post" action="memberSignOk.do">
-                                <p class="h4 text-center mb-4">Sign up</p>
-                                <br>
+                            <form name="frm" method="post" action="memberSignOk.do" onsubmit="return chkSubmit()">
+                                <br><br><br>
                                 <div class="md-form">
                                     <i class="fa fa-user prefix grey-text"></i>
                                     <input type="text" name="name" class="form-control" placeholder="이름을 입력해주세요">
@@ -137,12 +136,12 @@ function chkSubmit(){
                                 <br>
                                 <div class="md-form">
                                     <i class="fa fa-envelope prefix grey-text"></i>
-                                    <input type="password" name="pw" class="form-control" placeholder="비밀번호를 입력해주세요 ">
+                                    <input type="password" name="pw" class="form-control" placeholder="비밀번호를 입력해주세요">
                                 </div>
                                 <br>
                                 <div class="md-form">
                                     <i class="fa fa-exclamation-triangle prefix grey-text"></i>
-                                    <input type="password" name="pwCheck" class="form-control" placeholder="비밀번호를 확인합니다 ">
+                                    <input type="password" name="pwCheck" class="form-control" placeholder="비밀번호를 확인합니다">
                                 </div>
                                 <br>
                                 <div class="md-form">

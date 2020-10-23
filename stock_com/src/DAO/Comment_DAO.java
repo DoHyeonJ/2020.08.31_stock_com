@@ -108,6 +108,21 @@ public class Comment_DAO {
 		return arr;
 	}
 	
+	// 특정 uid 의 댓글을 삭제하기
+	// DELETE
+	public int deleteByUid(int uid) throws SQLException{
+		int cnt = 0;
+		
+		try {
+			pstmt = conn.prepareStatement(D.SQL_COMMENT_DELETE_BY_UID);
+			pstmt.setInt(1, uid);
+			cnt = pstmt.executeUpdate();
+		} finally {
+			close();
+		}
+		return cnt;
+	}
+	
 	
 } //end class
 

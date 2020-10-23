@@ -15,8 +15,18 @@
 				"url": "jdbc:mysql://localhost:3306/mydb",
 				"home": "MySQL Binaries",
 				"type": "dev",
-				"auth-model": "native",
-				"handlers": {}
+				"auth-model": "native"
+			}
+		}
+	},
+	"virtual-models": {
+		"mariaDB-174449c67a7-48582779783f1ddc": {
+			"mydb": {
+				"@properties": {
+					"erd.diagram.state": {
+						"serialized": "<diagram version=\"1\" name=\"mydb\" time=\"202010162240\"><entities><data-source id=\"mariaDB-174449c67a7-48582779783f1ddc\"><entity id=\"1\" name=\"st_board\" fq-name=\"mydb.st_board\" order=\"0\" color-bg=\"11,13,14\" x=\"245\" y=\"16\"><path name=\"mydb\"/></entity><entity id=\"2\" name=\"st_comment\" fq-name=\"mydb.st_comment\" order=\"1\" color-bg=\"11,13,14\" x=\"70\" y=\"13\"><path name=\"mydb\"/></entity><entity id=\"3\" name=\"st_member\" fq-name=\"mydb.st_member\" order=\"2\" color-bg=\"11,13,14\" x=\"400\" y=\"24\"><path name=\"mydb\"/></entity></data-source></entities><relations><relation name=\"FK_st_comment_st_board\" fq-name=\"mydb.st_comment.FK_st_comment_st_board\" type=\"fk\" pk-ref=\"1\" fk-ref=\"2\"/><relation name=\"FK_st_board_st_member\" fq-name=\"mydb.st_board.FK_st_board_st_member\" type=\"fk\" pk-ref=\"3\" fk-ref=\"1\"/><relation name=\"FK_st_board_st_member_2\" fq-name=\"mydb.st_board.FK_st_board_st_member_2\" type=\"fk\" pk-ref=\"3\" fk-ref=\"1\"/><relation name=\"FK_st_comment_st_member\" fq-name=\"mydb.st_comment.FK_st_comment_st_member\" type=\"fk\" pk-ref=\"3\" fk-ref=\"2\"/><relation name=\"FK_st_comment_st_member_2\" fq-name=\"mydb.st_comment.FK_st_comment_st_member_2\" type=\"fk\" pk-ref=\"3\" fk-ref=\"2\"/></relations></diagram>"
+					}
+				}
 			}
 		}
 	},

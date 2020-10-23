@@ -39,7 +39,7 @@
                         </h4>
                         <%}else {%>
                         <h4 class="navbar-text navbar-right">Signed out as&nbsp;
-                            <a href="memberLogout.do" class="text-primary">Logout </a>&nbsp;&nbsp;|&nbsp;
+                            <a href="#" class="text-primary" onclick="logOut();">Logout </a>&nbsp;&nbsp;|&nbsp;
                         </h4>
                         <%}	%>
                     </div>
@@ -53,8 +53,8 @@
 				</a>
 				<h2>LOGIN</h2>
 				<%}else {%>
-				<a href="memberLogout.do">
-				<img alt="login" src="icon/login.png" style="width: 15%">      
+				<a href="#" onclick="logOut();">
+				<img alt="login" src="icon/login.png" style="width: 15%" >      
 				</a>
 				<h2>LOGOUT</h2>
 				<%}	%>
