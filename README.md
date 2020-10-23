@@ -25,35 +25,42 @@ jsp를 기반으로 작업한 커뮤니티 사이트<br><br>
 # 5. 작동 화면 및 기능설명
 ![main](https://user-images.githubusercontent.com/59347101/97004331-e27bfc80-1577-11eb-8add-94c2889f5fb3.png)
 <br>
+```
 메인 페이지 입니다.
-<br>
 로그인, 회원가입 가능
+```
 <br><br>
 ![login](https://user-images.githubusercontent.com/59347101/97004335-e3ad2980-1577-11eb-8236-ecffae9646fa.png)
 <br>
+```
 로그인 페이지 입니다.
+```
 <br><br>
 ![join](https://user-images.githubusercontent.com/59347101/97004336-e445c000-1577-11eb-80bb-9e0ce0375cf8.png)
 <br>
+```
 회원가입 페이지 입니다.
-<br>
 ID 중복체크, input 태그 검증 가능
+```
 <br><br>
 ![list](https://user-images.githubusercontent.com/59347101/97004337-e445c000-1577-11eb-833b-45f6d09b7d7b.PNG)
 <br>
+```
 게시글 리스트 페이지 입니다.
-<br>
 로그인 상태로 접근시 글쓰기, 로그아웃이 가능하며, 비로그인 접속시 새글쓰기가 불가하며 로그인 버튼이 노출
-<br>
 페이지네이션 기능 
+```
 <br><br>
 ![write](https://user-images.githubusercontent.com/59347101/97004338-e4de5680-1577-11eb-8c20-919f91bf1898.png)
 <br>
+```
 게시글 작성 페이지 입니다. 로그인시에만 작성가능
+```
 <br><br>
 ![view](https://user-images.githubusercontent.com/59347101/97004333-e3149300-1577-11eb-8f0e-a6390b3350fa.png)
 <br>
+```
 게시글 view 페이지 입니다.
-<br>
 작성자 ID로 로그인 시 수정,삭제기능 사용가능
+```
 <br><br>
