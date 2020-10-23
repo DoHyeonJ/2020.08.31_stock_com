@@ -17,29 +17,29 @@ jsp를 기반으로 작업한 커뮤니티 사이트<br><br>
 - MariaDB
 <br><br>
 # 3. DB구성 및 관계도
-![db](./img/db.png)
+![db](https://user-images.githubusercontent.com/59347101/97004557-31299680-1578-11eb-8158-164dfb7079d1.PNG)
 <br><br>
 # 4. Pakage 구성
-![pakage](./img/pakage.png)
+![pakage](https://user-images.githubusercontent.com/59347101/97004561-325ac380-1578-11eb-8a20-584fb67995f5.PNG)
 <br><br>
 # 5. 작동 화면 및 기능설명
-![main](./img/main.png)
+![main](https://user-images.githubusercontent.com/59347101/97004331-e27bfc80-1577-11eb-8add-94c2889f5fb3.png)
 <br>
 메인 페이지 입니다.
 <br>
 로그인, 회원가입 가능
 <br><br>
-![login](./img/login.png)
+![login](https://user-images.githubusercontent.com/59347101/97004335-e3ad2980-1577-11eb-8236-ecffae9646fa.png)
 <br>
 로그인 페이지 입니다.
 <br><br>
-![join](./img/join.png)
+![join](https://user-images.githubusercontent.com/59347101/97004336-e445c000-1577-11eb-80bb-9e0ce0375cf8.png)
 <br>
 회원가입 페이지 입니다.
 <br>
 ID 중복체크, input 태그 검증 가능
 <br><br>
-![list](./img/list.png)
+![list](https://user-images.githubusercontent.com/59347101/97004337-e445c000-1577-11eb-833b-45f6d09b7d7b.PNG)
 <br>
 게시글 리스트 페이지 입니다.
 <br>
@@ -47,11 +47,11 @@ ID 중복체크, input 태그 검증 가능
 <br>
 페이지네이션 기능 
 <br><br>
-![write](./img/write.png)
+![write](https://user-images.githubusercontent.com/59347101/97004338-e4de5680-1577-11eb-8c20-919f91bf1898.png)
 <br>
 게시글 작성 페이지 입니다. 로그인시에만 작성가능
 <br><br>
-![view](./img/view.png)
+![view](https://user-images.githubusercontent.com/59347101/97004333-e3149300-1577-11eb-8f0e-a6390b3350fa.png)
 <br>
 게시글 view 페이지 입니다.
 <br>
